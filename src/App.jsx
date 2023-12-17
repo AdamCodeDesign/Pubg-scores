@@ -4,13 +4,16 @@ import Container from "@mui/material/Container";
 import Browser from "./components/Browser";
 import PlayerStats from "./components/PlayerStats";
 import Matches from "./components/Matches";
+import LeaderBoard from "./components/LeaderBoard";
+
 
 function App() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm">
+      <Container maxWidth="lg">
         <Browser />
+        <LeaderBoard />
         <PlayerStats />
         <Matches />
       </Container>

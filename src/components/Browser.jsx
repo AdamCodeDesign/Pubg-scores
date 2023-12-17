@@ -10,12 +10,20 @@ export default function Browser() {
         {/* <Box sx={{ color: "info.main" }}>info.main</Box> */}
         <Box
           sx={{
+            margin: "auto",
+            marginTop: 10,
+            marginBottom: 10,
             color: "primary",
             width: 600,
             maxWidth: "100%",
           }}
         >
-          <TextField fullWidth id="fullWidth" placeholder = "PUBG player name" InputProps={{sx:{color:"gray"}}}/>
+          <TextField
+            fullWidth
+            id="fullWidth"
+            placeholder="PUBG player name"
+            InputProps={{ sx: { color: "gray" } }}
+          />
         </Box>
       </Typography>
     </>
