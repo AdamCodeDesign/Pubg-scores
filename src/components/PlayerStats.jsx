@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-export default function PlayerStats() {
+export default function PlayerStats({playerName}) {
   const [player, setPlayer] = useState([]);
   const [error, setError] = useState("");
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
   useEffect(() => {
     fetch(
-      "https://api.pubg.com/shards/steam/players?filter[playerNames]=the_meehow",
+      `https://api.pubg.com/shards/steam/players?filter[playerNames]=${playerName}`,
       {
         headers: {
           Authorization: 
@@ -34,7 +34,7 @@ export default function PlayerStats() {
           console.log("Player",data);
         }
       });
-  }, []);
+  }, [playerName]);
 
 
   return <div></div>;
