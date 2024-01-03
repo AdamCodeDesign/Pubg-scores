@@ -1,3 +1,4 @@
+import { TableCell, TableRow } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
 export default function Matches() {
@@ -5,14 +6,12 @@ export default function Matches() {
   const [error, setError] = useState("");
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
-
   useEffect(() => {
     fetch(
-      "https://api.pubg.com/shards/steam/matches/b57efe41-dc17-4f55-82c1-c1f87596e143",
+      "https://api.pubg.com/shards/steam/matches/6ea6f8f6-b25d-4531-9566-7ee8c1367f45",
       {
         headers: {
-          Authorization: 
-          `Bearer ${pubgKey}`,
+          Authorization: `Bearer ${pubgKey}`,
           Accept: "application/vnd.api+json",
         },
       }
@@ -28,15 +27,26 @@ export default function Matches() {
       .then((data) => {
         if (data.error) {
           setError(data.error);
-          console.log(error)
+          console.log(error);
         } else {
           setError("");
-          setMatch(data);
-          console.log("Matches",data);
+          setMatch(data.included);
+          console.log("Matches", data.included);
         }
       });
   }, []);
 
+  const participant = match?.filter((el) => el.type === "participant");
 
-  return <div></div>;
+  return (
+    <>
+      {participant.map((el, idx) => (
+        <TableRow key={idx}>
+          <TableCell>{idx + 1} </TableCell>
+          <TableCell>{el.attributes.stats.name}</TableCell>{" "}
+          <TableCell>{el.attributes.stats.kills}</TableCell>
+        </TableRow>
+      ))}
+    </>
+  );
 }
