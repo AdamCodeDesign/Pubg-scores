@@ -1,17 +1,18 @@
-import { Avatar, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
-export default function PlayerStats({ playerName }) {
-  const [player, setPlayer] = useState([]);
+export default function Season() {
+  const [playerLifetime, setPlayerLifetime] = useState([]);
   const [error, setError] = useState("");
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
   useEffect(() => {
     fetch(
-      `https://api.pubg.com/shards/steam/players?filter[playerNames]=${playerName}`,
+      `https://api.pubg.com/shards/steam/players/account.61a88fdd49e641408d15e6210e6db699/seasons/division.bro.official.pc-2018-27`,
+    // `https://api.pubg.com/shards/steam/seasons`,
       {
         headers: {
-          Authorization: `Bearer ${pubgKey}`,
+          Authorization: 
+            `Bearer ${pubgKey}`,
           Accept: "application/vnd.api+json",
         },
       }
@@ -27,20 +28,15 @@ export default function PlayerStats({ playerName }) {
       .then((data) => {
         if (data.error) {
           setError(data.error);
-          console.log(error);
+          console.log(error)
         } else {
           setError("");
-          setPlayer(data);
-          console.log("Player", data);
+          setPlayerLifetime(data);
+          console.log("Season",data);
         }
       });
-  }, [playerName]);
+  }, []);
 
-  return (
-    <Stack spacing={4}>
-      <Stack direction='row'>
-        <Avatar sx={{bgcolor:'success.light', width:96, height:96}}>{playerName}</Avatar>
-      </Stack>
-    </Stack>
-  );
+
+  return <div></div>;
 }

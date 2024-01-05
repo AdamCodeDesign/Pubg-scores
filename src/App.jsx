@@ -4,6 +4,8 @@ import Browser from "./components/Browser";
 import PlayerStats from "./components/PlayerStats";
 import Matches from "./components/Matches";
 import LeaderBoard from "./components/LeaderBoard";
+import LifetimeStats from "./components/LifeTimeStats";
+import Season from "./components/Season";
 
 
 function App() {
@@ -12,8 +14,11 @@ function App() {
     <React.Fragment>
       <Container maxWidth="lg">
         <Browser />
-        <LeaderBoard />
-        <Matches />
+        {/* <PlayerStats /> */}
+        <Season />
+        {/* <LifetimeStats accountId="account.61a88fdd49e641408d15e6210e6db699"/> */}
+        {/* <LeaderBoard /> */}
+        {/* <Matches /> */}
       </Container>
     </React.Fragment>
     </>

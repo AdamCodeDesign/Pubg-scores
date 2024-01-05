@@ -1,14 +1,14 @@
-import { Avatar, Stack } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import {Stack, Avatar} from "@mui/material";
 
-export default function PlayerStats({ playerName }) {
-  const [player, setPlayer] = useState([]);
+export default function LifetimeStats({ accountId }) {
+  const [playerLifetime, setPlayerLifetime] = useState([]);
   const [error, setError] = useState("");
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
   useEffect(() => {
     fetch(
-      `https://api.pubg.com/shards/steam/players?filter[playerNames]=${playerName}`,
+      `https://api.pubg.com/shards/steam/players/${accountId}/seasons/lifetime`,
       {
         headers: {
           Authorization: `Bearer ${pubgKey}`,
@@ -30,16 +30,18 @@ export default function PlayerStats({ playerName }) {
           console.log(error);
         } else {
           setError("");
-          setPlayer(data);
-          console.log("Player", data);
+          setPlayerLifetime(data);
+          console.log("LifetimeStats", data);
         }
       });
-  }, [playerName]);
+  }, [accountId]);
 
   return (
     <Stack spacing={4}>
-      <Stack direction='row'>
-        <Avatar sx={{bgcolor:'success.light', width:96, height:96}}>{playerName}</Avatar>
+      <Stack direction="row">
+        <Avatar sx={{ bgcolor: "success.light", width: 96, height: 96 }}>
+          {playerName}
+        </Avatar>
       </Stack>
     </Stack>
   );

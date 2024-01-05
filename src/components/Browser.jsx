@@ -1,9 +1,10 @@
 import { Stack, TextField, Button } from "@mui/material";
 import { useState } from "react";
 import PlayerStats from "./PlayerStats";
+import LifetimeStats from "./LifeTimeStats";
 
 export default function Browser() {
-  const [playerName, setPlayerName] = useState("");
+  const [playerName, setPlayerName] = useState(null);
   const [name, setName] = useState("");
 
   const handleChange = (e) => {
@@ -12,19 +13,25 @@ export default function Browser() {
   };
 
   return (
-    <div>
-      <Stack spacing={10}>
-        <Stack margin={10} direction="row">
-          <TextField
-            label="Player name"
-            onChange={(e) => setPlayerName(e.target.value)}
-          ></TextField>
-          <Button variant="contained" onClick={handleChange}>
-            Find
-          </Button>
-        </Stack>
-        <PlayerStats playerName={name} />
+    <Stack spacing={10} alignItems='center'>
+      <Stack spacing={1} direction='row' justifyContent='center'>
+        <TextField
+        sx={{width:'300px'}}
+          label="Player name"
+          onChange={(e) => setPlayerName(e.target.value)}
+        ></TextField>
+        <Button variant="contained" onClick={handleChange}>
+          Find
+        </Button>
       </Stack>
-    </div>
+
+      <Stack>
+        {name && (
+          <Stack>
+            <PlayerStats playerName={name} />
+          </Stack>
+        )}
+      </Stack>
+    </Stack>
   );
 }
