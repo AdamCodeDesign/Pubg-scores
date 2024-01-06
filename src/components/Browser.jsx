@@ -1,10 +1,10 @@
-import { Stack, TextField, Button, Avatar , Form} from "@mui/material";
+import { Stack, TextField, Button, Avatar } from "@mui/material";
 import { useState } from "react";
 import PlayerStats from "./PlayerStats";
 import LifetimeStats from "./LifeTimeStats";
 
 export default function Browser() {
-  const [playerName, setPlayerName] = useState(null);
+  const [playerName, setPlayerName] = useState("");
   const [name, setName] = useState("");
 
   const handleChange = (e) => {
@@ -13,24 +13,28 @@ export default function Browser() {
   };
 
   return (
-    <Stack spacing={10} alignItems="center">
-      <Avatar src="src/assets/logo.svg" sx={{ width: 600, height: 300 }} />
+    <Stack spacing={22} alignItems="center">
+      <Avatar variant='square' src="src/assets/PUBG_Logo_White.png" sx={{width:600, height:164}}/>
       <Stack spacing={1} direction="row" justifyContent="center">
-        
         <TextField
-        
-          variant="outlined"
-          focused
-          sx={{ width: "400px", bgcolor: "warning" }}
-          color="warning"
-          label="Player name"
+          variant="filled"
+          sx={{
+            width: "400px",
+            input: {
+              color: "white",
+              bgcolor: "rgba(170,170,170,0.5)",
+              fontSize: "1em",
+              border: '1px solid white',
+              borderRadius:'6px'
+            },
+          }}
+          color='warning'
+          label="Enter player name"
           onChange={(e) => setPlayerName(e.target.value)}
-          // InputProps={{color:"white"}}
         ></TextField>
         <Button variant="contained" onClick={handleChange}>
           Find
         </Button>
-        
       </Stack>
 
       <Stack>
