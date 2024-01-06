@@ -7,21 +7,16 @@ import LeaderBoard from "./components/LeaderBoard";
 import LifetimeStats from "./components/LifeTimeStats";
 import Season from "./components/Season";
 
-
 function App() {
   return (
-    <>
-    <React.Fragment>
-      <Container maxWidth="lg">
-        <Browser />
-        {/* <PlayerStats /> */}
-        <Season />
-        {/* <LifetimeStats accountId="account.61a88fdd49e641408d15e6210e6db699"/> */}
-        {/* <LeaderBoard /> */}
-        {/* <Matches /> */}
-      </Container>
-    </React.Fragment>
-    </>
+    <Container maxWidth="lg">
+      <Browser />
+      {/* <PlayerStats /> */}
+      <Season />
+      {/* <LifetimeStats accountId="account.61a88fdd49e641408d15e6210e6db699"/> */}
+      {/* <LeaderBoard /> */}
+      {/* <Matches /> */}
+    </Container>
   );
 }
 
