@@ -114,9 +114,6 @@ export default function Browser() {
           Find
         </Button>
       </Stack>
-<<<<<<< HEAD
-      {accountId && <LifetimeStats accountId={accountId} playerName={playerName} />}
-=======
 
       {accountId ? (
         <LifetimeStats accountId={accountId} />
@@ -125,7 +122,6 @@ export default function Browser() {
           {error}
         </Typography>
       )}
->>>>>>> Browser
     </Stack>
   );
 }
