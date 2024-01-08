@@ -73,7 +73,7 @@ export default function Browser() {
           Find
         </Button>
       </Stack>
-      {accountId && <LifetimeStats accountId={accountId} />}
+      {accountId && <LifetimeStats accountId={accountId} playerName={playerName} />}
     </Stack>
   );
 }

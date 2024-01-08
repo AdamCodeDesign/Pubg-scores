@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Stack, Avatar } from "@mui/material";
+import { Stack, Avatar, TextField, Typography } from "@mui/material";
 
-export default function LifetimeStats({ accountId }) {
+export default function LifetimeStats({ accountId, playerName }) {
   const [playerLifetime, setPlayerLifetime] = useState([]);
   const [error, setError] = useState("");
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
@@ -39,8 +39,8 @@ export default function LifetimeStats({ accountId }) {
 
   return (
     <Stack spacing={4}>
-      <Stack direction="row">
-        <Avatar />
+      <Stack direction="row" alignItems='center' spacing={1}>
+        <Avatar sx={{width:96, height:96}}/><Typography variant='h3' color="white">{playerName}</Typography>
       </Stack>
     </Stack>
   );
