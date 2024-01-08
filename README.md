@@ -11,4 +11,3 @@ Currently, two official plugins are available:
 id michala  "account.0b19d2698a29457aa50cdffbff2cf01f"
 moje id  account.61a88fdd49e641408d15e6210e6db699
 
-w Browser probuje sie dostac do ID linia 41
