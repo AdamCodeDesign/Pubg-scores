@@ -39,7 +39,7 @@ export default function PlayerStats({ playerName }) {
   return (
     <Stack spacing={4}>
       <Stack direction='row'>
-        <Avatar sx={{bgcolor:'success.light', width:96, height:96}}>{playerName}</Avatar>
+        <Avatar />
       </Stack>
     </Stack>
   );

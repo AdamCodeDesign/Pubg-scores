@@ -12,7 +12,7 @@ function App() {
     <Container maxWidth="lg">
       <Browser />
       {/* <PlayerStats /> */}
-      <Season />
+      {/* <Season /> */}
       {/* <LifetimeStats accountId="account.61a88fdd49e641408d15e6210e6db699"/> */}
       {/* <LeaderBoard /> */}
       {/* <Matches /> */}
