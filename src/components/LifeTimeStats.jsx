@@ -1,5 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Stack, Avatar, TextField, Typography } from "@mui/material";
+import { NavLink } from "react-router-dom";
+
+import {
+  Stack,
+  Avatar,
+  TextField,
+  Typography,
+  AppBar,
+  Toolbar,
+  Button,
+} from "@mui/material";
+import Stats from "./Stats";
 
 export default function LifetimeStats({ accountId, playerName }) {
   const [playerLifetime, setPlayerLifetime] = useState([]);
@@ -38,10 +49,39 @@ export default function LifetimeStats({ accountId, playerName }) {
   }, [accountId, error, pubgKey]);
 
   return (
-    <Stack spacing={4}>
-      <Stack direction="row" alignItems='center' spacing={1}>
-        <Avatar sx={{width:96, height:96}}/><Typography variant='h3' color="white">{playerName}</Typography>
+    <>
+      <Stack spacing={4}>
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <Avatar sx={{ width: 96, height: 96 }} />
+          <Typography variant="h3" color="white">
+            {playerName}
+          </Typography>
+        </Stack>
+        <Stack direction="row" spacing={2}>
+          <Button variant="contained" color="warning">
+            All
+          </Button>
+          <Button variant="contained" color="warning">
+            Solo FPP
+          </Button>
+          <Button variant="contained" color="warning">
+            DUO FPP
+          </Button>
+          <Button variant="contained" color="warning">
+            Squad FPP
+          </Button>
+          <Button variant="contained" color="warning">
+            Solo Tpp
+          </Button>
+          <Button variant="contained" color="warning">
+            Dup Tpp
+          </Button>
+          <Button variant="contained" color="warning">
+            Squad Tpp
+          </Button>
+        </Stack>
       </Stack>
-    </Stack>
+      <NavLink to="/all">All</NavLink>
+    </>
   );
 }

@@ -6,17 +6,14 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
-import { useState, useEffect } from "react";
-import PlayerStats from "./PlayerStats";
+import { useState, } from "react";
 import LifetimeStats from "./LifeTimeStats";
 
 export default function Browser() {
   const [playerName, setPlayerName] = useState(false);
-  const [player, setPlayer] = useState([]);
   const [error, setError] = useState("");
   const [accountId, setAccountID] = useState("");
   const [platform, setPlatform] = useState("");
-  console.log(platform);
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
   const handleChange = (e) => {
@@ -44,7 +41,6 @@ export default function Browser() {
           console.log(error);
         } else {
           setError("");
-          setPlayer(data.data);
           console.log("Player", data.data);
           setAccountID(data.data.map((el) => el.id));
         }
@@ -69,14 +65,14 @@ export default function Browser() {
           value={platform}
           onChange={switchPlatform}
           select
-          label="platform"
+          label="PLATFORM"
           color="warning"
           variant="filled"
           sx={{
             width: "100px",
             input: {
               color: "white",
-              bgcolor: "rgba(170,170,170,0.5)",
+              bgcolor: "white",
               fontSize: "1em",
               border: "1px solid white",
               borderRadius: "6px",

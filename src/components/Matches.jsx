@@ -1,5 +1,5 @@
 import { TableCell, TableRow } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 
 export default function Matches() {
   const [match, setMatch] = useState([]);
@@ -34,7 +34,7 @@ export default function Matches() {
           console.log("Matches", data.included);
         }
       });
-  }, []);
+  }, [error, pubgKey]);
 
   const participant = match?.filter((el) => el.type === "participant");
 
