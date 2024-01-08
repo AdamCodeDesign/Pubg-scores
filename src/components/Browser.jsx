@@ -1,4 +1,11 @@
-import { Stack, TextField, Button, Avatar } from "@mui/material";
+import {
+  Stack,
+  TextField,
+  Button,
+  Avatar,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import { useState, useEffect } from "react";
 import PlayerStats from "./PlayerStats";
 import LifetimeStats from "./LifeTimeStats";
@@ -8,12 +15,14 @@ export default function Browser() {
   const [player, setPlayer] = useState([]);
   const [error, setError] = useState("");
   const [accountId, setAccountID] = useState("");
+  const [platform, setPlatform] = useState("");
+  console.log(platform);
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
   const handleChange = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.pubg.com/shards/steam/players?filter[playerNames]=${playerName}`,
+      `https://api.pubg.com/shards/${platform}/players?filter[playerNames]=${playerName}`,
       {
         headers: {
           Authorization: `Bearer ${pubgKey}`,
@@ -26,7 +35,7 @@ export default function Browser() {
           return response.json();
         }
         return {
-          error: "WRONG PLAYER NAME",
+          error: "WRONG PLAYER NAME OR PLATFORM",
         };
       })
       .then((data) => {
@@ -42,6 +51,12 @@ export default function Browser() {
       });
   };
 
+  const switchPlatform = (e) => {
+    e.preventDefault();
+
+    setPlatform(e.target.value);
+  };
+
   return (
     <Stack spacing={22} alignItems="center">
       <Avatar
@@ -50,6 +65,30 @@ export default function Browser() {
         sx={{ width: 600, height: 164 }}
       />
       <Stack spacing={1} direction="row" justifyContent="center">
+        <TextField
+          value={platform}
+          onChange={switchPlatform}
+          select
+          label="platform"
+          color="warning"
+          variant="filled"
+          sx={{
+            width: "100px",
+            input: {
+              color: "white",
+              bgcolor: "rgba(170,170,170,0.5)",
+              fontSize: "1em",
+              border: "1px solid white",
+              borderRadius: "6px",
+            },
+          }}
+        >
+          <MenuItem value="xbox">xbox</MenuItem>
+          <MenuItem value="stadia">stadia</MenuItem>
+          <MenuItem value="kakao">kakao</MenuItem>
+          <MenuItem value="psn">psn</MenuItem>
+          <MenuItem value="steam">steam</MenuItem>
+        </TextField>
         <TextField
           variant="filled"
           sx={{
@@ -65,7 +104,9 @@ export default function Browser() {
           color="warning"
           label="PLAYER NAME"
           onKeyDown={(e) => {
-            if(e.key === "Enter"){handleChange(e)}
+            if (e.key === "Enter") {
+              handleChange(e);
+            }
           }}
           onChange={(e) => setPlayerName(e.target.value)}
         ></TextField>
@@ -73,7 +114,18 @@ export default function Browser() {
           Find
         </Button>
       </Stack>
+<<<<<<< HEAD
       {accountId && <LifetimeStats accountId={accountId} playerName={playerName} />}
+=======
+
+      {accountId ? (
+        <LifetimeStats accountId={accountId} />
+      ) : (
+        <Typography variant="h2" color="red">
+          {error}
+        </Typography>
+      )}
+>>>>>>> Browser
     </Stack>
   );
 }
