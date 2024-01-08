@@ -116,7 +116,7 @@ export default function Browser() {
       </Stack>
 
       {accountId ? (
-        <LifetimeStats accountId={accountId} />
+        <LifetimeStats accountId={accountId} playerName={playerName} />
       ) : (
         <Typography variant="h2" color="red">
           {error}
