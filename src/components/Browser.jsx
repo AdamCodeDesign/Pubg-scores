@@ -10,7 +10,8 @@ import { useState, } from "react";
 import LifetimeStats from "./LifeTimeStats";
 
 export default function Browser() {
-  const [playerName, setPlayerName] = useState(false);
+  const [playerName, setPlayerName] = useState("");
+  const [avatarName, setAvatarName] = useState("")
   const [error, setError] = useState("");
   const [accountId, setAccountID] = useState("");
   const [platform, setPlatform] = useState("");
@@ -43,6 +44,7 @@ export default function Browser() {
           setError("");
           console.log("Player", data.data);
           setAccountID(data.data.map((el) => el.id));
+          setAvatarName(data.data.map((el) => el.attributes.name));
         }
       });
   };
@@ -52,7 +54,9 @@ export default function Browser() {
 
     setPlatform(e.target.value);
   };
-
+console.log("playername",playerName);
+console.log("platform", platform)
+console.log("accountID",accountId)
   return (
     <Stack spacing={22} alignItems="center">
       <Avatar
@@ -110,9 +114,16 @@ export default function Browser() {
           Find
         </Button>
       </Stack>
+      {avatarName &&
+      <Stack direction="row" alignItems="center" spacing={1}>
+          <Avatar sx={{ width: 96, height: 96}} />
+          <Typography variant="h3" color="white" >
+            {avatarName}
+          </Typography>
+        </Stack>}
 
-      {accountId ? (
-        <LifetimeStats accountId={accountId} playerName={playerName} platform={platform}/>
+      {(accountId && platform) ? (
+        <LifetimeStats accountId={accountId} platform={platform}/>
       ) : (
         <Typography variant="h2" color="red">
           {error}
