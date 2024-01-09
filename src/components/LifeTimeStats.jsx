@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 
 import {
   Stack,
-  Avatar,
   TextField,
   Typography,
-  AppBar,
-  Toolbar,
   Button,
 } from "@mui/material";
-import Stats from "./Stats";
 
-export default function LifetimeStats({ accountId, platform}) {
-  const [playerLifetime, setPlayerLifetime] = useState([]);
+export default function LifetimeStats({ accountId, platform }) {
+  const [playerLifetime, setPlayerLifetime] = useState(null);
   const [error, setError] = useState("");
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
@@ -42,19 +37,26 @@ export default function LifetimeStats({ accountId, platform}) {
             console.log(error);
           } else {
             setError("");
-            setPlayerLifetime(data);
+            setPlayerLifetime(data.data);
             console.log("LifetimeStats", data);
           }
         });
   }, [accountId, error, pubgKey, platform]);
 
+  function modeGame(){
+    return <div style={{color:"white", fontSize:30}}>działam</div>
+  }
+
   return (
     <>
       <Stack spacing={4}>
-        <Typography color="white" fontSize="2em">Lifetime Stats</Typography>
-        <Stack direction="row" spacing={2}>
-          
-        </Stack>
+        <Typography color="white" fontSize="2em">
+          Lifetime Stats
+        </Typography>
+        {modeGame()}
+        {/* <div style={{color:"white", fontSize:30}}>to jest mode game--- {playerLifetime.map(el =>el.attributes.map(el => el.gameModeStats.map(el => el.duo.assists)))}</div> */}
+        {playerLifetime &&
+        <div style={{color:"white", fontSize:30}}>to jest mode game--- {playerLifetime.attributes.gameModeStats['duo'].kills}</div>}
       </Stack>
     </>
   );

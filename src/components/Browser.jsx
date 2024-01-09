@@ -6,12 +6,12 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
-import { useState, } from "react";
+import { useState } from "react";
 import LifetimeStats from "./LifeTimeStats";
 
 export default function Browser() {
   const [playerName, setPlayerName] = useState("");
-  const [avatarName, setAvatarName] = useState("")
+  const [avatarName, setAvatarName] = useState("");
   const [error, setError] = useState("");
   const [accountId, setAccountID] = useState("");
   const [platform, setPlatform] = useState("");
@@ -33,14 +33,14 @@ export default function Browser() {
           return response.json();
         }
         return {
-          error: "WRONG PLAYER NAME OR PLATFORM",
+          error: response.status,
         };
       })
       .then((data) => {
         if (data.error) {
           setError(data.error);
-          setAvatarName(false)
-          setAccountID(false)
+          setAvatarName(false);
+          setAccountID(false);
           console.log(error);
         } else {
           setError("");
@@ -56,9 +56,9 @@ export default function Browser() {
 
     setPlatform(e.target.value);
   };
-console.log("playername",playerName);
-console.log("platform", platform)
-console.log("accountID",accountId)
+  console.log("playername", playerName);
+  console.log("platform", platform);
+  console.log("accountID", accountId);
   return (
     <Stack spacing={22} alignItems="center">
       <Avatar
@@ -116,19 +116,21 @@ console.log("accountID",accountId)
           Find
         </Button>
       </Stack>
-      {avatarName &&
-      <Stack direction="row" alignItems="center" spacing={1}>
-          <Avatar sx={{ width: 96, height: 96}} />
-          <Typography variant="h3" color="white" >
+      {avatarName && (
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <Avatar sx={{ width: 96, height: 96 }} />
+          <Typography variant="h3" color="white">
             {avatarName}
           </Typography>
-        </Stack>}
+        </Stack>
+      )}
 
-      {(accountId && platform) ? (
-        <LifetimeStats accountId={accountId} platform={platform}/>
+      {accountId && platform ? (
+        <LifetimeStats accountId={accountId} platform={platform} />
       ) : (
         <Typography variant="h2" color="red">
-          {error}
+          {error === 429 && "Serwer umar"}
+          {error === 404 && "Player nie istnieje"}
         </Typography>
       )}
     </Stack>
