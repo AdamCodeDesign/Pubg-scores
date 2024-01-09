@@ -39,6 +39,8 @@ export default function Browser() {
       .then((data) => {
         if (data.error) {
           setError(data.error);
+          setAvatarName(false)
+          setAccountID(false)
           console.log(error);
         } else {
           setError("");
