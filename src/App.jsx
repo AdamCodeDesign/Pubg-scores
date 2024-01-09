@@ -1,9 +1,7 @@
-import * as React from "react";
+import React from "react";
 import Container from "@mui/material/Container";
 import Browser from "./components/Browser";
-import Matches from "./components/Matches";
-import LifetimeStats from "./components/LifeTimeStats";
-import Season from "./components/Season";
+
 import Stats from "./components/Stats";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 

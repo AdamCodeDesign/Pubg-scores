@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import Stats from "./Stats";
 
-export default function LifetimeStats({ accountId, playerName }) {
+export default function LifetimeStats({ accountId, playerName , platform}) {
   const [playerLifetime, setPlayerLifetime] = useState([]);
   const [error, setError] = useState("");
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
@@ -20,7 +20,7 @@ export default function LifetimeStats({ accountId, playerName }) {
   useEffect(() => {
     accountId &&
       fetch(
-        `https://api.pubg.com/shards/steam/players/${accountId}/seasons/lifetime`,
+        `https://api.pubg.com/shards/${platform}/players/${accountId}/seasons/lifetime`,
         {
           headers: {
             Authorization: `Bearer ${pubgKey}`,
@@ -46,42 +46,42 @@ export default function LifetimeStats({ accountId, playerName }) {
             console.log("LifetimeStats", data);
           }
         });
-  }, [accountId, error, pubgKey]);
+  }, [accountId, error, pubgKey, platform]);
 
   return (
     <>
       <Stack spacing={4}>
         <Stack direction="row" alignItems="center" spacing={1}>
-          <Avatar sx={{ width: 96, height: 96 }} />
-          <Typography variant="h3" color="white">
+          <Avatar sx={{ width: 96, height: 96}} />
+          <Typography variant="h3" color="white" >
             {playerName}
           </Typography>
         </Stack>
+        <Typography color="white" fontSize="2em">Lifetime Stats</Typography>
         <Stack direction="row" spacing={2}>
           <Button variant="contained" color="warning">
-            All
+            <NavLink to="/all">All</NavLink>
           </Button>
           <Button variant="contained" color="warning">
-            Solo FPP
+            <NavLink to="/solofpp">Solo FPP</NavLink>
           </Button>
           <Button variant="contained" color="warning">
-            DUO FPP
+            <NavLink to="/duofpp">Duo FPP</NavLink>
           </Button>
           <Button variant="contained" color="warning">
-            Squad FPP
+            <NavLink to="/squadfpp">Squad FPP</NavLink>
           </Button>
           <Button variant="contained" color="warning">
-            Solo Tpp
+            <NavLink to="/solotpp">Solo TPP</NavLink>
           </Button>
           <Button variant="contained" color="warning">
-            Dup Tpp
+            <NavLink to="/duotpp">Duo TPP</NavLink>
           </Button>
           <Button variant="contained" color="warning">
-            Squad Tpp
+            <NavLink to="/squadtpp">Squad TPP</NavLink>
           </Button>
         </Stack>
       </Stack>
-      <NavLink to="/all">All</NavLink>
     </>
   );
 }

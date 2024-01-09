@@ -69,7 +69,7 @@ export default function Browser() {
           color="warning"
           variant="filled"
           sx={{
-            width: "100px",
+            width: "130px",
             input: {
               color: "white",
               bgcolor: "white",
@@ -112,7 +112,7 @@ export default function Browser() {
       </Stack>
 
       {accountId ? (
-        <LifetimeStats accountId={accountId} playerName={playerName} />
+        <LifetimeStats accountId={accountId} playerName={playerName} platform={platform}/>
       ) : (
         <Typography variant="h2" color="red">
           {error}
