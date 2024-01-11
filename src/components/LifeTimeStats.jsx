@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { Stack, Avatar, TextField, Typography } from "@mui/material";
 
-export default function LifetimeStats({ accountId, playerName }) {
-  const [playerLifetime, setPlayerLifetime] = useState([]);
+import { Stack, TextField, Typography, Button, Box, Grid } from "@mui/material";
+import GameModeStats from "./GameModeStats";
+
+export default function LifetimeStats({ accountId, platform }) {
+  const [playerLifetime, setPlayerLifetime] = useState(null);
   const [error, setError] = useState("");
+  const [gameMode, setGameMode] = useState("fpp");
+  const buttonsGameMode = [
+    "solo",
+    "duo",
+    "squad",
+    "solo-fpp",
+    "duo-fpp",
+    "squad-fpp",
+  ];
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
   useEffect(() => {
     accountId &&
       fetch(
-        `https://api.pubg.com/shards/steam/players/${accountId}/seasons/lifetime`,
+        `https://api.pubg.com/shards/${platform}/players/${accountId}/seasons/lifetime`,
         {
           headers: {
             Authorization: `Bearer ${pubgKey}`,
@@ -31,17 +42,39 @@ export default function LifetimeStats({ accountId, playerName }) {
             console.log(error);
           } else {
             setError("");
-            setPlayerLifetime(data);
+            setPlayerLifetime(data.data);
             console.log("LifetimeStats", data);
           }
         });
-  }, [accountId, error, pubgKey]);
+  }, [accountId, error, pubgKey, platform]);
 
   return (
-    <Stack spacing={4}>
-      <Stack direction="row" alignItems='center' spacing={1}>
-        <Avatar sx={{width:96, height:96}}/><Typography variant='h3' color="white">{playerName}</Typography>
-      </Stack>
+    <Stack width="100%">
+      <Typography color="white" fontSize="2em" p={1}>
+        Lifetime Stats
+      </Typography>
+
+      <Grid container >
+        {buttonsGameMode.map((modeName, idx) => (
+          <Grid item xs={4} md={2} key={idx} p={1}>
+            <Button sx={{padding:0, width:"100%"}}
+            
+            size = "medium"
+              variant="contained"
+              onClick={() => setGameMode(`${modeName}`)}
+            >
+              {modeName}
+            </Button>
+          </Grid>
+        ))}
+      </Grid>
+      {playerLifetime ? (
+        <GameModeStats
+          stats={playerLifetime.attributes.gameModeStats[gameMode]}
+        />
+      ) : (
+        "nie udało sie"
+      )}
     </Stack>
   );
 }
