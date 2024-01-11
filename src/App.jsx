@@ -4,7 +4,7 @@ import Browser from "./components/Browser";
 
 function App() {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="md">
       <Browser />
       {/* <Season /> */}
       {/* <LifetimeStats accountId="account.61a88fdd49e641408d15e6210e6db699"/> */}
