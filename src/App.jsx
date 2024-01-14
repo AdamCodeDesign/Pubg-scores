@@ -15,7 +15,7 @@ function App() {
             path="/stats/:platformParam/:accountIdParam"
             element={<LifetimeStats />}
           />
-          <Route path="/error/:status" element={<Error />}></Route>
+          <Route path="/error/:status" element={<Error />} />
         </Routes>
       </BrowserRouter>
     </Container>

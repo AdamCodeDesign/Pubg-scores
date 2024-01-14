@@ -41,7 +41,7 @@ export default function Browser() {
         if (data.error) {
           setAvatarName(false);
           setAccountID(false);
-          navigate(`/error/${data.error}`)
+          navigate(`/error/${data.error}`);
         } else {
           console.log("Player", data.data);
           setAccountID(data.data.map((el) => el.id));
@@ -52,10 +52,6 @@ export default function Browser() {
     console.log("accountID", accountId);
   };
 
-  // const loadParams = () => {
-  //   history.pushState(null, "", `/stats/${platform}/${accountId}`);
-  // };
-
   const switchPlatform = (e) => {
     e.preventDefault();
     setPlatform(e.target.value);
@@ -63,7 +59,6 @@ export default function Browser() {
   console.log("playername", playerName);
   console.log("platform", platform);
   console.log("accountID", accountId);
-  console.log("history", history);
   return (
     <Container maxWidth="md">
       <Stack spacing={10} alignItems="center" sx={{ width: "100%" }}>
@@ -88,13 +83,11 @@ export default function Browser() {
               variant="filled"
               sx={{
                 width: "100%",
-                input: {
-                  color: "white",
-                  bgcolor: "white",
-                  fontSize: "1em",
-                  border: "1px solid white",
-                  borderRadius: "6px",
-                },
+                color: "rgba(170,170,170,0.5)",
+                bgcolor: "rgba(170,170,170,0.5)",
+                fontSize: "1em",
+                border: "1px solid white",
+                borderRadius: "6px",
               }}
             >
               <MenuItem value="xbox">xbox</MenuItem>
@@ -137,14 +130,14 @@ export default function Browser() {
             </Button>
           </Grid>
         </Grid>
-        {avatarName &&
+        {avatarName && (
           <Stack direction="row" alignItems="center" spacing={1}>
             <Avatar sx={{ width: 96, height: 96 }} />
             <Typography variant="h3" color="white">
               {avatarName}
             </Typography>
-          </Stack>}
-        
+          </Stack>
+        )}
       </Stack>
     </Container>
   );
