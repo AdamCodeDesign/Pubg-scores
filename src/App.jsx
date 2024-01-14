@@ -1,14 +1,23 @@
 import React from "react";
 import Container from "@mui/material/Container";
 import Browser from "./components/Browser";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LifetimeStats from "./components/LifeTimeStats";
+import Error from "./components/Error";
 
 function App() {
   return (
     <Container maxWidth="md">
-      <Browser />
-      {/* <Season /> */}
-      {/* <LifetimeStats accountId="account.61a88fdd49e641408d15e6210e6db699"/> */}
-      {/* <Matches /> */}
+      <BrowserRouter>
+        <Browser />
+        <Routes>
+          <Route
+            path="/stats/:platformParam/:accountIdParam"
+            element={<LifetimeStats />}
+          />
+          <Route path="/error/:status" element={<Error />}></Route>
+        </Routes>
+      </BrowserRouter>
     </Container>
   );
 }

@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import { Stack, TextField, Typography, Button, Box, Grid } from "@mui/material";
 import GameModeStats from "./GameModeStats";
+import { useParams , useNavigate} from "react-router-dom";
 
-export default function LifetimeStats({ accountId, platform }) {
+export default function LifetimeStats() {
   const [playerLifetime, setPlayerLifetime] = useState(null);
   const [error, setError] = useState("");
-  const [gameMode, setGameMode] = useState("fpp");
+  const [gameMode, setGameMode] = useState("solo");
+  const {accountIdParam} = useParams();
+  const {platformParam} = useParams();
   const buttonsGameMode = [
     "solo",
     "duo",
@@ -17,10 +20,11 @@ export default function LifetimeStats({ accountId, platform }) {
   ];
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
+
   useEffect(() => {
-    accountId &&
+    accountIdParam && platformParam
       fetch(
-        `https://api.pubg.com/shards/${platform}/players/${accountId}/seasons/lifetime`,
+        `https://api.pubg.com/shards/${platformParam}/players/${accountIdParam}/seasons/lifetime`,
         {
           headers: {
             Authorization: `Bearer ${pubgKey}`,
@@ -46,20 +50,21 @@ export default function LifetimeStats({ accountId, platform }) {
             console.log("LifetimeStats", data);
           }
         });
-  }, [accountId, error, pubgKey, platform]);
+  }, [accountIdParam, error, pubgKey, platformParam]);
 
   return (
+    
     <Stack width="100%">
       <Typography color="white" fontSize="2em" p={1}>
         Lifetime Stats
       </Typography>
 
-      <Grid container >
+      <Grid container>
         {buttonsGameMode.map((modeName, idx) => (
           <Grid item xs={4} md={2} key={idx} p={1}>
-            <Button sx={{padding:0, width:"100%"}}
-            
-            size = "medium"
+            <Button
+              sx={{ padding: 0, width: "100%" }}
+              size="medium"
               variant="contained"
               onClick={() => setGameMode(`${modeName}`)}
             >
