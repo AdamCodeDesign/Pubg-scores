@@ -1,29 +1,44 @@
 import React from "react";
+import {
+  createBrowserRouter,
+  Routes,
+  Route,
+  Outlet,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+
+//MUI Container
 import Container from "@mui/material/Container";
+
+//Components
 import Browser from "./components/Browser";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import LifetimeStats from "./components/LifeTimeStats";
 import Error from "./components/Error";
 import GameModeStats from "./components/GameModeStats";
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Browser />}>
+      <Route
+        path="/stats/:platformParam/:accountIdParam"
+        element={<LifetimeStats />}
+      >
+        <Route
+          path="/stats/:platformParam/:accountIdParam/:mode"
+          element={<GameModeStats />}
+        />
+      </Route>
+      <Route path="/error/:status" element={<Error />}></Route>
+    </Route>
+  )
+);
+
 function App() {
   return (
     <Container maxWidth="md">
-      <BrowserRouter>
-        <Browser />
-        <Routes>
-          <Route
-            path="/stats/:platformParam/:accountIdParam"
-            element={<LifetimeStats />}
-          ></Route>
-          <Route path="/error/:status" element={<Error />}></Route>
-          <Route
-            path="/stats/:platformParam/:accountIdParam/:mode"
-            element={<GameModeStats />}
-          />
-        </Routes>
-        <Routes></Routes>
-      </BrowserRouter>
+      {/* <Browser /> */}
+      <RouterProvider router={router} />
     </Container>
   );
 }

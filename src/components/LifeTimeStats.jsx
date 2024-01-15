@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { Stack, TextField, Typography, Button, Box, Grid } from "@mui/material";
 import GameModeStats from "./GameModeStats";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Outlet } from "react-router-dom";
 
 export default function LifetimeStats() {
   const [playerLifetime, setPlayerLifetime] = useState(null);
@@ -76,13 +76,7 @@ export default function LifetimeStats() {
           </Grid>
         ))}
       </Grid>
-      {/* {playerLifetime ? (
-        <GameModeStats
-          stats={playerLifetime.attributes.gameModeStats[gameMode]}
-        />
-      ) : (
-        "nie udało sie"
-      )} */}
+      <Outlet />
     </Stack>
   );
 }

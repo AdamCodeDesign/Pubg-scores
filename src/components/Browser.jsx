@@ -8,8 +8,8 @@ import {
   Grid,
   Container,
 } from "@mui/material";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export default function Browser() {
   const [playerName, setPlayerName] = useState("");
@@ -47,11 +47,14 @@ export default function Browser() {
           setAccountID(data.data.map((el) => el.id));
           setAvatarName(data.data.map((el) => el.attributes.name));
           navigate(`/stats/${platform}/${data.data.map((el) => el.id)}`);
+          localStorage.setItem("platformValue", platform);
         }
       });
     console.log("accountID", accountId);
   };
-
+  useEffect(() => {
+    setPlatform(localStorage.getItem("platformValue"));
+  }, []);
 
   const switchPlatform = (e) => {
     e.preventDefault();
@@ -141,6 +144,7 @@ export default function Browser() {
           </Stack>
         )}
       </Stack>
+      <Outlet />
     </Container>
   );
 }
