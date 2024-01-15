@@ -8,9 +8,9 @@ export default function LifetimeStats() {
   const [playerLifetime, setPlayerLifetime] = useState(null);
   const [error, setError] = useState("");
   const [gameMode, setGameMode] = useState("solo");
-  const stats = playerLifetime.attributes.gameModeStats[gameMode] //to chce przekazac do GameMOdeStats
   const { accountIdParam } = useParams();
   const { platformParam } = useParams();
+
   const navigate = useNavigate();
   const buttonsGameMode = [
     "solo",
@@ -68,7 +68,7 @@ export default function LifetimeStats() {
               variant="contained"
               onClick={() => {
                 setGameMode(`${modeName}`);
-                navigate(`${modeName}`);
+                navigate(`${modeName}`, {state : playerLifetime.attributes.gameModeStats[modeName]});
               }}
             >
               {modeName}

@@ -52,9 +52,6 @@ export default function Browser() {
     console.log("accountID", accountId);
   };
 
-  // const loadParams = () => {
-  //   history.pushState(null, "", `/stats/${platform}/${accountId}`);
-  // };
 
   const switchPlatform = (e) => {
     e.preventDefault();
