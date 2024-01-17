@@ -8,14 +8,17 @@ import {
   Grid,
   Container,
 } from "@mui/material";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export default function Browser() {
   const [playerName, setPlayerName] = useState("");
   const [avatarName, setAvatarName] = useState("");
   const [accountId, setAccountID] = useState("");
   const [platform, setPlatform] = useState("");
+  const { accountIdParam } = useParams();
+  console.log("idParametr", accountIdParam);
+
   const navigate = useNavigate();
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
@@ -46,11 +49,14 @@ export default function Browser() {
           console.log("Player", data.data);
           setAccountID(data.data.map((el) => el.id));
           setAvatarName(data.data.map((el) => el.attributes.name));
-          navigate(`/stats/${platform}/${data.data.map((el) => el.id)}`);
+          navigate(`/stats/${platform}/${data.data.map((el) => el.id)}`, {state: data.data.map((el) => el.attributes.name)});
         }
       });
     console.log("accountID", accountId);
+    console.log("playername", playerName);
+    console.log("player", playerName);
   };
+ 
 
   const switchPlatform = (e) => {
     e.preventDefault();
