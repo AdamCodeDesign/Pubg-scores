@@ -47,13 +47,15 @@ export default function Browser() {
           setAccountID(data.data.map((el) => el.id));
           setAvatarName(data.data.map((el) => el.attributes.name));
           navigate(`/stats/${platform}/${data.data.map((el) => el.id)}`);
-          localStorage.setItem("platformValue", platform);
+          // localStorage.setItem("platformValue", platform);
+          localStorage.setItem("AvatarValue", data.data.map((el) => el.attributes.name));
         }
       });
     console.log("accountID", accountId);
   };
   useEffect(() => {
-    setPlatform(localStorage.getItem("platformValue"));
+    // setPlatform(localStorage.getItem("platformValue"));
+    setAvatarName(localStorage.getItem("AvatarValue"));
   }, []);
 
   const switchPlatform = (e) => {
