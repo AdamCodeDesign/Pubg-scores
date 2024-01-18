@@ -7,7 +7,7 @@ import Error from "./components/Error";
 
 function App() {
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="lg">
       <BrowserRouter>
         <Browser />
         <Routes>
