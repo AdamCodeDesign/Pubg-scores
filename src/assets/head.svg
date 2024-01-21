@@ -1,0 +1,15 @@
+<svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <path fill="#ffffff" fill-rule="evenodd" d="m1.47209,5.378s-0.189,-4.201 4.144,-5.073c4.333,-0.872 6.963,1.506 7.35,3.171c0.387,1.665 0.575,2.518 0.387,3.171c-0.232,0.317 -0.155,0.555 0.309,1.348c0.464,0.793 1.393,1.665 0.077,1.823c-0.851,0.159 -0.309,0.713 -0.309,0.713s0.232,0.476 -0.464,0.555c0,0 0.464,0.872 0.077,0.872s-0.464,0.159 -0.542,0.476c-0.077,0.317 0.077,2.061 -2.631,1.03c-0.619,-0.317 -0.892,0.977 -1.238,1.744c-0.208,0.461 -0.431,1.09 -1.47,0.634c-0.927,-0.407 -2.995,-1.378 -3.771,-2.705c-0.424,-0.727 0.693,-1.778 0.151,-3.205c-0.542,-1.427 -0.712,-0.987 -1.254,-1.779c-0.541,-0.793 -0.738,-1.824 -0.816,-2.775" id="svg_1"/>
+  <line fill="none" x1="7.86008" y1="0.44824" x2="7.9543" y2="6.32118" id="svg_2" stroke-linejoin="undefined" stroke-linecap="undefined" stroke="#bf0000"/>
+  <path fill="none" stroke="#bf0000" stroke-linejoin="undefined" stroke-linecap="undefined" opacity="undefined" d="m7.98571,9.71304l0.03141,5.49607" id="svg_3"/>
+  <line fill="none" x1="10.18414" y1="7.64024" x2="11.44038" y2="7.73446" id="svg_4" stroke="null"/>
+  <line fill="none" x1="10.30976" y1="7.76587" x2="14.17271" y2="7.82868" id="svg_6"/>
+  <line fill="none" x1="7.98571" y1="7.4518" x2="7.98571" y2="7.67165" id="svg_8"/>
+  <line fill="none" x1="12.44537" y1="4.97072" x2="12.53959" y2="10.84366" id="svg_9" stroke-linejoin="undefined" stroke-linecap="undefined" stroke="#bf0000" transform="rotate(90.0888 12.4925 7.90719)"/>
+  <line fill="none" x1="3.43182" y1="4.93932" x2="3.52604" y2="10.81226" id="svg_10" stroke-linejoin="undefined" stroke-linecap="undefined" stroke="#bf0000" transform="rotate(90.0888 3.47893 7.87579)"/>
+  <line fill="none" x1="7.66769" y1="7.54563" x2="8.2719" y2="8.33113" id="svg_11" stroke-linejoin="undefined" stroke-linecap="undefined" transform="rotate(84.0956 7.9698 7.93838)" stroke="#bf0000"/>
+ </g>
+
+</svg>
