@@ -13,7 +13,7 @@ export default function GameModeStats({ stats }) {
         container
         justifyContent="space-evenly"
         textAlign="center"
-        rowSpacing={10}
+        rowSpacing={4}
         my={2}
       >
         <Grid item xs={10} md={10} p={1} margin={2}>
