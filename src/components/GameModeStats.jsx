@@ -83,7 +83,7 @@ export default function GameModeStats({ stats }) {
           p={1}
           margin={1}
         >
-          <Box> headshotKills{stats.headshotKills}</Box>
+          <Box> <img src="src/assets/Headshot.png" height={40}/><Typography>headshot</Typography><Typography>{stats.headshotKills}</Typography></Box>
         </Grid>
         <Grid
           item
@@ -93,7 +93,7 @@ export default function GameModeStats({ stats }) {
           p={1}
           margin={1}
         >
-          <Box> assists{stats.assists}</Box>
+          <Box> <img src="src/assets/handshake-simple-solid.svg" height={40}/>assists{stats.assists}</Box>
         </Grid>
         <Grid
           item
@@ -103,7 +103,7 @@ export default function GameModeStats({ stats }) {
           p={1}
           margin={1}
         >
-          <Box> damageDealt{stats.damageDealt}</Box>
+          <Box><img src="src/assets/explosion-solid.svg" height={40}/> Avg damageDealt{(stats.damageDealt/stats.roundsPlayed).toFixed(0)}</Box>
         </Grid>
         <Grid
           item
@@ -153,7 +153,7 @@ export default function GameModeStats({ stats }) {
           p={1}
           margin={1}
         >
-          <Box>Swim Distance {(stats.swimDistance / 1000).toFixed(2)} km</Box>
+          <Box> <img src="src/assets/baby-angel.svg" height={40}/>Reanimations {stats.revives}</Box>
         </Grid>
         <Grid
           item
