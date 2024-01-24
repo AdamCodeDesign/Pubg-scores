@@ -8,8 +8,8 @@ import {
   Grid,
   Container,
 } from "@mui/material";
-import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Browser() {
   const [playerName, setPlayerName] = useState("");
@@ -97,7 +97,6 @@ export default function Browser() {
               }}
             >
               <MenuItem value="xbox">xbox</MenuItem>
-              <MenuItem value="stadia">stadia</MenuItem>
               <MenuItem value="kakao">kakao</MenuItem>
               <MenuItem value="psn">psn</MenuItem>
               <MenuItem value="steam">steam</MenuItem>

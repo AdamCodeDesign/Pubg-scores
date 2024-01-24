@@ -1,5 +1,4 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
 
 export default function GameModeStats({ stats }) {
   const KD = stats.kills / stats.roundsPlayed;
