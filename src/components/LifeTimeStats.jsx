@@ -97,7 +97,7 @@ export default function LifetimeStats() {
     e.preventDefault();
     setSeason(e.target.value);
   };
-console.log("Lista sezonów",seasonsList)
+  console.log("Lista sezonów", seasonsList);
   return (
     <Stack width="100%">
       <Grid item md={3} xs={12} p={1}>
@@ -117,11 +117,19 @@ console.log("Lista sezonów",seasonsList)
             borderRadius: "6px",
           }}
         >
-          <MenuItem value="xbox">xbox</MenuItem>
-          <MenuItem value="stadia">stadia</MenuItem>
-          <MenuItem value="kakao">kakao</MenuItem>
-          <MenuItem value="psn">psn</MenuItem>
-          <MenuItem value="steam">steam</MenuItem>
+          {" "}
+          <MenuItem  value='lifetime'>
+            Lifetime
+          </MenuItem>
+          
+          {seasonsList &&
+            seasonsList?.map((el, idx) => {
+              return (
+                <MenuItem key={idx} value={el.id}>
+                  Season {idx + 1}
+                </MenuItem>
+              );
+            })}
         </TextField>
       </Grid>
 
@@ -151,15 +159,6 @@ console.log("Lista sezonów",seasonsList)
       ) : (
         "nie udało sie"
       )}
-      <div>
-        {seasonsList &&
-          seasonsList?.map((el, idx) => {
-            return (
-            <ul key={idx}>
-              <li >{el.id}</li>
-            </ul>)
-          })}
-      </div>
     </Stack>
   );
 }
