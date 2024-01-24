@@ -20,6 +20,7 @@ export default function LifetimeStats() {
   const { platformParam } = useParams();
   const location = useLocation();
   const [avatarName, setAvatarName] = useState("");
+  const [season, setSeason] = useState("lifetime")
   const buttonsGameMode = [
     "solo",
     "duo",
@@ -30,10 +31,11 @@ export default function LifetimeStats() {
   ];
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
 
+
   useEffect(() => {
     accountIdParam && platformParam;
     fetch(
-      `https://api.pubg.com/shards/${platformParam}/players/${accountIdParam}/seasons/lifetime`,
+      `https://api.pubg.com/shards/${platformParam}/players/${accountIdParam}/seasons/${season}`,
       {
         headers: {
           Authorization: `Bearer ${pubgKey}`,

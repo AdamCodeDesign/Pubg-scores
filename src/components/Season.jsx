@@ -7,8 +7,8 @@ export default function Season() {
 
   useEffect(() => {
     fetch(
-      `https://api.pubg.com/shards/steam/players/account.61a88fdd49e641408d15e6210e6db699/seasons/division.bro.official.pc-2018-27`,
-    // `https://api.pubg.com/shards/steam/seasons`,
+      // `https://api.pubg.com/shards/steam/players/account.61a88fdd49e641408d15e6210e6db699/seasons/division.bro.official.pc-2018-27`,
+    `https://api.pubg.com/shards/steam/seasons`,
       {
         headers: {
           Authorization: 
