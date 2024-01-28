@@ -62,7 +62,7 @@ export default function LifetimeStats() {
           setAvatarName(location.state);
         }
       });
-  }, [accountIdParam, error, pubgKey, platformParam, location.state]);
+  }, [accountIdParam, error, pubgKey, platformParam, location.state, season]);
 
   return (
     <Stack width="100%">
