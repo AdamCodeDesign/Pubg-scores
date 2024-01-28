@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 import { Stack, TextField, Button, Grid, MenuItem } from "@mui/material";
-import { useParams } from "react-router-dom";
-import RankedStats from "./RankedStats";
+import { Route, useParams } from "react-router-dom";
 import NoRankedStats from "./NoRankedStats";
+import RankedStats from "./RankedStats";
 
 export default function LifetimeStats() {
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
@@ -17,10 +17,6 @@ export default function LifetimeStats() {
   const [consoleSeason, setConsoleSeason] = useState([]);
   const [pcSeason, setPcSeason] = useState([]);
   const [season, setSeason] = useState("lifetime");
-  const [rankedSeason, setRankedSeason] = useState(
-    ""
-  );
-  const [rankedStats, setRankedStats] = useState(null);
   const [ranked, setRanked] = useState(false);
   const noRankedGameMode = [
     "solo",
@@ -30,7 +26,6 @@ export default function LifetimeStats() {
     "duo-fpp",
     "squad-fpp",
   ];
-  const [rankedGameMode, setRankedGameMode] = useState(['']);
 
   useEffect(() => {
     fetch(`https://api.pubg.com/shards/steam/seasons`, {
@@ -87,49 +82,12 @@ export default function LifetimeStats() {
           console.log("LifetimeStats", data);
         }
       });
-
-    fetch(
-      `https://api.pubg.com/shards/${platformParam}/players/${accountIdParam}/seasons/${rankedSeason}/ranked`,
-      {
-        headers: {
-          Authorization: `Bearer ${pubgKey}`,
-          Accept: "application/vnd.api+json",
-        },
-      }
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        return {
-          error: "Cosik poszło nie tak",
-        };
-      })
-      .then((data) => {
-        if (data.error) {
-          setError(data.error);
-          console.log(error);
-        } else {
-          setError("");
-          setRankedStats(data.data);
-          setRankedGameMode(data.data.attributes.rankedGameModeStats.keys());
-          console.log("rankedStatsOnclick", data.data);
-          setRanked(true);
-        }
-      });
-  }, [accountIdParam, error, pubgKey, platformParam, season, rankedSeason]);
+  }, [accountIdParam, error, pubgKey, platformParam, season]);
 
   const switchSeason = (e) => {
     e.preventDefault();
     setSeason(e.target.value);
   };
-  const switchRankedSeason = (e) => {
-    e.preventDefault();
-    setRankedSeason(e.target.value);
-  };
-
-  console.log("rankedStats", rankedStats);
-  console.log("rankedGameMOde", rankedGameMode);
 
   return (
     <Stack width="100%">
@@ -139,7 +97,6 @@ export default function LifetimeStats() {
             value={season}
             onChange={switchSeason}
             select
-            label="SEASON"
             color="warning"
             variant="filled"
             sx={{
@@ -188,75 +145,16 @@ export default function LifetimeStats() {
           </Grid>
         ))}
       </Grid>
-      <Grid container>
-        <Grid>
-          <TextField
-            value={rankedSeason}
-            onChange={switchRankedSeason}
-            select
-            label="SEASON"
-            color="warning"
-            variant="filled"
-            sx={{
-              width: "100%",
-              color: "rgba(170,170,170,0.5)",
-              bgcolor: "rgba(170,170,170,0.5)",
-              fontSize: "1em",
-              border: "1px solid white",
-              borderRadius: "6px",
-            }}
-          >
-            {" "}
-            {(platformParam === "steam") || platformParam === "kakao"
-              ? pcSeason.map((el, idx) => {
-                  return (
-                    <MenuItem key={el.id} value={el.id}>
-                      {idx + 1}
-                    </MenuItem>
-                  );
-                })
-              : consoleSeason.map((el, idx) => {
-                  return (
-                    <MenuItem key={el.id} value={el.id}>
-                      {idx + 3}
-                    </MenuItem>
-                  );
-                })}
-          </TextField>
-        </Grid>
-        {rankedGameMode &&
-          rankedGameMode.map((modeName, idx) => (
-            <Grid item xs={4} md={2} key={idx} p={1}>
-              <Button
-                sx={{
-                  padding: 0,
-                  width: "100%",
-                  "&:focus": { bgcolor: "error.main" },
-                }}
-                size="medium"
-                variant="contained"
-                onClick={() => setGameMode(`${modeName}`)}
-              >
-                {modeName} Rank
-              </Button>
-            </Grid>
-          ))}
-      </Grid>
-      {!ranked ? (
-        playerLifetime ? (
-          <NoRankedStats
-            stats={playerLifetime.attributes.gameModeStats[gameMode]}
-          />
-        ) : (
-          "nie udało sie"
-        )
-      ) : rankedStats ? (
-        <RankedStats
-          stats={rankedStats.attributes.rankedGameModeStats["squad-fpp"]}
+
+      {playerLifetime ? (
+        <NoRankedStats
+          stats={playerLifetime.attributes.gameModeStats[gameMode]}
         />
       ) : (
-        "NO data"
+        "nie udało sie"
       )}
+      <Button onClick={() => setRanked(true)}>Get Your rank stats</Button>
+      {ranked && <RankedStats seasonsList = {seasonsList}/>}
     </Stack>
   );
 }
