@@ -4,7 +4,6 @@ import Browser from "./components/Browser";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LifetimeStats from "./components/LifeTimeStats";
 import Error from "./components/Error";
-import Season from "./components/Season";
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
           <Route path="/error/:status" element={<Error />} />
         </Routes>
       </BrowserRouter>
-      {/* <Season/> */}
     </Container>
   );
 }

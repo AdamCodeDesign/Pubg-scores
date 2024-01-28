@@ -28,7 +28,7 @@ export default function LifetimeStats() {
   const [pcSeason, setPcSeason] = useState([]);
   const [season, setSeason] = useState("lifetime");
   const [rankedStats, setRankedStats] = useState(null);
-  // const [ranked, setRanked] = useState(false);
+  const [ranked, setRanked] = useState(false);
   const buttonsGameMode = [
     "solo",
     "duo",
@@ -121,7 +121,7 @@ export default function LifetimeStats() {
           setError("");
           setRankedStats(data.data);
           console.log("rankedStatsOnclick", data.data);
-          // setRanked(true);
+          setRanked(true);
         }
       });
   };
@@ -212,14 +212,15 @@ export default function LifetimeStats() {
           </Grid>
         ))}
       </Grid>
-      {playerLifetime ? (
-        <GameModeStats
-          stats={playerLifetime.attributes.gameModeStats[gameMode]}
-        />
-      ) : (
-        "nie udało sie"
-      )}
-      {rankedStats ? (
+      {!ranked ? (
+        playerLifetime ? (
+          <GameModeStats
+            stats={playerLifetime.attributes.gameModeStats[gameMode]}
+          />
+        ) : (
+          "nie udało sie"
+        )
+      ) : rankedStats ? (
         <RankedStats
           stats={rankedStats.attributes.rankedGameModeStats[gameMode]}
         />
