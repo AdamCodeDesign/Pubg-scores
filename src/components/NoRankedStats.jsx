@@ -1,6 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 
-export default function GameModeStats({ stats }) {
+export default function NoRankedStats({ stats }) {
   const KD = stats.kills / stats.roundsPlayed;
   return (
     <Box
