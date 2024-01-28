@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import GameModeStats from "./GameModeStats";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+import RankedStats from "./RankedStats";
 
 export default function LifetimeStats() {
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
@@ -26,6 +27,8 @@ export default function LifetimeStats() {
   const [consoleSeason, setConsoleSeason] = useState([]);
   const [pcSeason, setPcSeason] = useState([]);
   const [season, setSeason] = useState("lifetime");
+  const [rankedStats, setRankedStats] = useState(null);
+  // const [ranked, setRanked] = useState(false);
   const buttonsGameMode = [
     "solo",
     "duo",
@@ -36,16 +39,12 @@ export default function LifetimeStats() {
   ];
 
   useEffect(() => {
-    fetch(
-      // `https://api.pubg.com/shards/steam/players/account.61a88fdd49e641408d15e6210e6db699/seasons/division.bro.official.pc-2018-27`,
-      `https://api.pubg.com/shards/steam/seasons`,
-      {
-        headers: {
-          Authorization: `Bearer ${pubgKey}`,
-          Accept: "application/vnd.api+json",
-        },
-      }
-    )
+    fetch(`https://api.pubg.com/shards/steam/seasons`, {
+      headers: {
+        Authorization: `Bearer ${pubgKey}`,
+        Accept: "application/vnd.api+json",
+      },
+    })
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -92,18 +91,47 @@ export default function LifetimeStats() {
           setError("");
           setPlayerLifetime(data.data);
           console.log("LifetimeStats", data);
-          setAvatarName(location.state);
         }
       });
   }, [accountIdParam, error, pubgKey, platformParam, location.state, season]);
+
+  const handleClick = () => {
+    fetch(
+      `https://api.pubg.com/shards/${platformParam}/players/${accountIdParam}/seasons/${season}/ranked`,
+      {
+        headers: {
+          Authorization: `Bearer ${pubgKey}`,
+          Accept: "application/vnd.api+json",
+        },
+      }
+    )
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        return {
+          error: "Cosik poszło nie tak",
+        };
+      })
+      .then((data) => {
+        if (data.error) {
+          setError(data.error);
+          console.log(error);
+        } else {
+          setError("");
+          setRankedStats(data.data);
+          console.log("rankedStatsOnclick", data.data);
+          // setRanked(true);
+        }
+      });
+  };
 
   const switchSeason = (e) => {
     e.preventDefault();
     setSeason(e.target.value);
   };
-  console.log("Lista sezonów", seasonsList);
-  console.log("consoleSeason", consoleSeason);
-  console.log('pcSeason', pcSeason)
+
+  console.log("rankedStats", rankedStats);
 
   return (
     <Stack width="100%">
@@ -126,21 +154,21 @@ export default function LifetimeStats() {
         >
           {" "}
           <MenuItem value="lifetime">Lifetime</MenuItem>
-          {(platformParam === "steam" | "kakao") ?
-          
-           ( pcSeason.map((el, idx) => {
-              return (
-                <MenuItem key={idx} value={el.id}>
-                  Season {idx + 1}
-                </MenuItem>
-              );
-            })) :  ( consoleSeason.map((el, idx) => {
-              return (
-                <MenuItem key={idx} value={el.id}>
-                  Season {idx + 3}
-                </MenuItem>
-              );
-            }))}
+          {(platformParam === "steam") | "kakao"
+            ? pcSeason.map((el, idx) => {
+                return (
+                  <MenuItem key={idx} value={el.id}>
+                    Season {idx + 1}
+                  </MenuItem>
+                );
+              })
+            : consoleSeason.map((el, idx) => {
+                return (
+                  <MenuItem key={idx} value={el.id}>
+                    Season {idx + 3}
+                  </MenuItem>
+                );
+              })}
         </TextField>
       </Grid>
 
@@ -163,9 +191,37 @@ export default function LifetimeStats() {
           </Grid>
         ))}
       </Grid>
+      <Grid container>
+        {buttonsGameMode.map((modeName, idx) => (
+          <Grid item xs={4} md={2} key={idx} p={1}>
+            <Button
+              sx={{
+                padding: 0,
+                width: "100%",
+                "&:focus": { bgcolor: "error.main" },
+              }}
+              size="medium"
+              variant="contained"
+              onClick={() => {
+                setGameMode(`${modeName}`);
+                handleClick();
+              }}
+            >
+              {modeName} Rank
+            </Button>
+          </Grid>
+        ))}
+      </Grid>
       {playerLifetime ? (
         <GameModeStats
           stats={playerLifetime.attributes.gameModeStats[gameMode]}
+        />
+      ) : (
+        "nie udało sie"
+      )}
+      {rankedStats ? (
+        <RankedStats
+          stats={rankedStats.attributes.rankedGameModeStats[gameMode]}
         />
       ) : (
         "nie udało sie"
