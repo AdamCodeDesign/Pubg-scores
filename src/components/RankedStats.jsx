@@ -13,7 +13,7 @@ export default function RankedStats(seasonsList) {
     el.id.includes("console")
   );
   const [rankedStats, setRankedStats] = useState(null);
-  const [rankedGameMode, setRankedGameMode] = useState([""]);
+  const [rankedGameMode, setRankedGameMode] = useState([]);
 
   useEffect(() => {
     fetch(
