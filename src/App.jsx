@@ -4,7 +4,7 @@ import Browser from "./components/Browser";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LifetimeStats from "./components/LifeTimeStats";
 import Error from "./components/Error";
-import Season from "./components/Season";
+import RankedStats from "./components/RankedStats";
 
 function App() {
   return (
@@ -16,10 +16,13 @@ function App() {
             path="/stats/:platformParam/:accountIdParam"
             element={<LifetimeStats />}
           />
+          {/* <Route
+            path="/ranked"
+            element={<RankedStats />}
+          /> */}
           <Route path="/error/:status" element={<Error />} />
         </Routes>
       </BrowserRouter>
-      {/* <Season/> */}
     </Container>
   );
 }
