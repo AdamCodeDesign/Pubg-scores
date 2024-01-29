@@ -10,4 +10,4 @@ Currently, two official plugins are available:
 id michala "account.0b19d2698a29457aa50cdffbff2cf01f"
 moje id account.61a88fdd49e641408d15e6210e6db699
 
-ranked nie ma walsciwosci lifetime a noranked ma a oba czytaja seasons z opcji wyboru
+przełaczanie sezonow w rankingu czasem nie zmienia statystyk. Przelaczajac sezon 6 i nizszy sa problemy. Chyna wtedy nie bylo rankingu wiec musze usunac te sezony z tablicy

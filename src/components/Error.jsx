@@ -8,7 +8,7 @@ export default function Error() {
 
   return (
     <Typography variant="h2" color="red">
-      {status === "429" && "Serwer umar"}
+      {status === "429" && "Serwer down"}
       {status === "404" && "Player nie istnieje"}
     </Typography>
   );

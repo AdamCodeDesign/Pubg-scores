@@ -1,11 +1,13 @@
 import { Box, Grid, Typography } from "@mui/material";
+import React from "react";
 
-export default function NoRankedStats({ stats }) {
-  const KD = stats.kills / stats.roundsPlayed;
+export default function RankedDetails({ stats }) {
   return (
+    <>
+    {stats ? 
     <Box
       bgcolor="grey.900"
-      sx={{ borderRadius: "16px", opacity: 0.9 }}
+      sx={{ borderRadius: "16px", opacity: 0.8 }}
       color="white"
     >
       <Grid
@@ -15,6 +17,13 @@ export default function NoRankedStats({ stats }) {
         rowSpacing={2}
         my={2}
       >
+        <Grid item xs={10} md={10} p={1} margin={2}>
+          <Typography
+            sx={{  fontSize: "2em" }}
+          >
+            RANK STATS
+          </Typography>
+        </Grid>
         <Grid item xs={10} md={10} p={1} margin={2}>
           <Box>
             <Typography
@@ -28,15 +37,7 @@ export default function NoRankedStats({ stats }) {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={5} md={3} p={1} margin={1} justifyContent="center">
-          <Box>
-            <img src="src/assets/Death.png" height={40} />
-            <Typography fontSize="1.5em">Avg kills/game</Typography>
-            <Typography fontSize="1.5em" color="warning.main">
-              {KD.toFixed(2)}
-            </Typography>
-          </Box>
-        </Grid>
+
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
@@ -59,9 +60,9 @@ export default function NoRankedStats({ stats }) {
               <img src="src/assets/Death.png" height={40} />
               <img src="src/assets/Death.png" height={30} />
             </Box>
-            <Typography fontSize="1.5em">roundMostKills</Typography>
+            <Typography fontSize="1.5em">AVG rank</Typography>
             <Typography fontSize="1.5em" color="warning.main">
-              {stats.roundMostKills}
+              {Math.round(stats.avgRank)}
             </Typography>
           </Box>
         </Grid>
@@ -189,6 +190,7 @@ export default function NoRankedStats({ stats }) {
           </Box>
         </Grid>
       </Grid>
-    </Box>
+    </Box> : " You have no stats in this season"}
+    </>
   );
 }
