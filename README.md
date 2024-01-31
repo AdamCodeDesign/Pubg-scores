@@ -10,4 +10,6 @@ Currently, two official plugins are available:
 id michala "account.0b19d2698a29457aa50cdffbff2cf01f"
 moje id account.61a88fdd49e641408d15e6210e6db699
 
-przełaczanie sezonow w rankingu czasem nie zmienia statystyk. Przelaczajac sezon 6 i nizszy sa problemy. Chyna wtedy nie bylo rankingu wiec musze usunac te sezony z tablicy
+<!-- przełaczanie sezonow w rankingu czasem nie zmienia statystyk. Przelaczajac sezon 6 i nizszy sa problemy. Chyna wtedy nie bylo rankingu wiec musze usunac te sezony z tablicy -->
+
+gdy zmieniam playera w wyszukiwarce na inna platforme to wywala błąd bo Lifestats pobiera platform z Browser

@@ -16,10 +16,10 @@ export default function RankedStatsNav(seasonsList) {
   const { platformParam } = useParams();
   const [error, setError] = useState("");
   const [rankedSeason, setRankedSeason] = useState("");
-  let pcSeason = seasonsList.seasonsList.filter((el) => el.id.includes("pc"));
+  let pcSeason = seasonsList.seasonsList.filter((el) => el.id.includes("pc")).toSpliced(0,6);
   let consoleSeason = seasonsList.seasonsList.filter((el) =>
     el.id.includes("console")
-  );
+  ).toSpliced(0,4);
   const [rankedStats, setRankedStats] = useState(null);
   const [rankedDetails, setRankedDetails] = useState(false);
   const [rankedGameMode, setRankedGameMode] = useState([]);
@@ -72,7 +72,7 @@ export default function RankedStatsNav(seasonsList) {
         sx={{ borderRadius: "16px", opacity: 0.9 }}
         color="white"
       >
-        <Grid item xs={4} md={1.5} p={1}>
+        <Grid item xs={4} md={1.6} p={1}>
           <TextField
             value={rankedSeason}
             onChange={switchRankedSeason}
@@ -89,14 +89,14 @@ export default function RankedStatsNav(seasonsList) {
               ? pcSeason.map((el, idx) => {
                   return (
                     <MenuItem key={el.id} value={el.id}>
-                     Season {idx + 1}
+                     Season {idx + 7}
                     </MenuItem>
                   );
                 })
               : consoleSeason.map((el, idx) => {
                   return (
                     <MenuItem key={el.id} value={el.id}>
-                     Season {idx + 3}
+                     Season {idx + 7}
                     </MenuItem>
                   );
                 })}
