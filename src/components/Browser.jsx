@@ -9,7 +9,7 @@ import {
   Container,
 } from "@mui/material";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 export default function Browser() {
   const [playerName, setPlayerName] = useState("");
@@ -49,7 +49,7 @@ export default function Browser() {
           console.log("Player", data.data);
           setAccountID(data.data.map((el) => el.id));
           setAvatarName(data.data.map((el) => el.attributes.name));
-          navigate(`/stats/${platform}/${data.data.map((el) => el.id)}`, {state: data.data.map((el) => el.attributes.name)});
+          navigate(`/stats/${platform}/${data.data.map((el) => el.id)}`, {state: data.data})
         }
       });
     console.log("accountID", accountId);
@@ -65,12 +65,12 @@ export default function Browser() {
   console.log("platform", platform);
   console.log("accountID", accountId);
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" sx={{textAlign:'center'}}>
       <Stack spacing={10} alignItems="center" sx={{ width: "100%" }}>
-        <img
-          style={{ width: "80%", height: "80%" }}
+       <NavLink to='/' style={{margin:'0 auto'}}><img
+          style={{ width: "100%" }}
           src="src/assets/PUBG_Logo_White.png"
-        />
+        /></NavLink>
 
         <Grid
           container

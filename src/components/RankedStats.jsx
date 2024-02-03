@@ -16,10 +16,12 @@ export default function RankedStats(seasonsList) {
   const { platformParam } = useParams();
   const [error, setError] = useState("");
   const [rankedSeason, setRankedSeason] = useState("");
-  let pcSeason = seasonsList.seasonsList.filter((el) => el.id.includes("pc")).toSpliced(0,6);
-  let consoleSeason = seasonsList.seasonsList.filter((el) =>
-    el.id.includes("console")
-  ).toSpliced(0,4);
+  let pcSeason = seasonsList.seasonsList
+    .filter((el) => el.id.includes("pc"))
+    .toSpliced(0, 6);
+  let consoleSeason = seasonsList.seasonsList
+    .filter((el) => el.id.includes("console"))
+    .toSpliced(0, 4);
   const [rankedStats, setRankedStats] = useState(null);
   const [rankedDetails, setRankedDetails] = useState(false);
   const [rankedGameMode, setRankedGameMode] = useState([]);
@@ -84,50 +86,55 @@ export default function RankedStats(seasonsList) {
             color="warning"
             sx={{ bgcolor: "white", borderRadius: "6px", padding: "0px" }}
           >
-            <MenuItem value="division.bro.official.pc-2018-27">Season 27</MenuItem>{" "}
+            <MenuItem value="division.bro.official.pc-2018-27">
+              Season 27
+            </MenuItem>{" "}
             {platformParam === "steam" || platformParam === "kakao"
               ? pcSeason.map((el, idx) => {
                   return (
                     <MenuItem key={el.id} value={el.id}>
-                     Season {idx + 7}
+                      Season {idx + 7}
                     </MenuItem>
                   );
                 })
               : consoleSeason.map((el, idx) => {
                   return (
                     <MenuItem key={el.id} value={el.id}>
-                     Season {idx + 7}
+                      Season {idx + 7}
                     </MenuItem>
                   );
                 })}
           </TextField>
         </Grid>
-        {rankedGameMode.length > 0 ?
-          rankedGameMode.map((modeName, idx) => (
-            <Grid item xs={4} md={2} key={idx} p={1}>
-              <Button
-                onClick={() => {
-                  setRankedDetails(true);
-                  setGameMode(modeName);
-                }}
-                sx={{
-                  padding: 0,
-                  minHeight: 40,
-                  width: "100%",
-                  "&:focus": { bgcolor: "error.main" },
-                }}
-                size="large"
-                variant="contained"
-              >
-                {modeName}
-              </Button>
-            </Grid>
-          )) : "You have no rank stats in this season"}
+        {rankedGameMode.length > 0
+          ? rankedGameMode.map((modeName, idx) => (
+              <Grid item xs={4} md={2} key={idx} p={1}>
+                <Button
+                  onClick={() => {
+                    setRankedDetails(true);
+                    setGameMode(modeName);
+                  }}
+                  sx={{
+                    padding: 0,
+                    minHeight: 40,
+                    width: "100%",
+                    "&:focus": { bgcolor: "error.main" },
+                  }}
+                  size="large"
+                  variant="contained"
+                >
+                  {modeName}
+                </Button>
+              </Grid>
+            ))
+          : "You have no rank stats in this season"}
         {rankedDetails ? (
           <RankedDetails
             stats={rankedStats.attributes.rankedGameModeStats[gameMode]}
           />
-        ): ''}
+        ) : (
+          ""
+        )}
       </Grid>
     </>
   );

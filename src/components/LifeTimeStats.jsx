@@ -21,7 +21,6 @@ export default function LifetimeStats() {
   const [gameMode, setGameMode] = useState("solo");
   const { accountIdParam } = useParams();
   const { platformParam } = useParams();
-  const [avatarName, setAvatarName] = useState("");
   const [seasonsList, setSeasonsList] = useState([]);
   const [consoleSeason, setConsoleSeason] = useState([]);
   const [pcSeason, setPcSeason] = useState([]);
@@ -36,6 +35,7 @@ export default function LifetimeStats() {
     "squad-fpp",
   ];
   const location = useLocation()
+  const avatarName = location.state.map(el => el.attributes.name)
 
   useEffect(() => {
     fetch(`https://api.pubg.com/shards/steam/seasons`, {
@@ -102,11 +102,11 @@ export default function LifetimeStats() {
 
   return (
     <>
-    {location && (
+    {avatarName && (
           <Stack direction="row" alignItems="center" spacing={1}>
             <Avatar sx={{ width: 96, height: 96 }} />
             <Typography variant="h3" color="white">
-              {location.state}
+              {avatarName}
             </Typography>
           </Stack>
         )}
