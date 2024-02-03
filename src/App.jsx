@@ -16,6 +16,10 @@ function App() {
             path="/stats/:platformParam/:accountIdParam"
             element={<LifetimeStats />}
           />
+          {/* <Route
+            path="/stats/ranked/:platformParam/:accountIdParam"
+            element={<RankedStats />}
+          /> */}
           <Route path="/error/:status" element={<Error />} />
         </Routes>
       </BrowserRouter>

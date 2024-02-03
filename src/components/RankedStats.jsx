@@ -10,7 +10,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RankedDetails from "./RankedDetails";
 
-export default function RankedStatsNav(seasonsList) {
+export default function RankedStats(seasonsList) {
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
   const { accountIdParam } = useParams();
   const { platformParam } = useParams();
