@@ -127,7 +127,7 @@ export default function RankedStatsNav(seasonsList) {
           <RankedDetails
             stats={rankedStats.attributes.rankedGameModeStats[gameMode]}
           />
-        ): error}
+        ): ''}
       </Grid>
     </>
   );

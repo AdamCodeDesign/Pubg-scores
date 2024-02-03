@@ -54,7 +54,6 @@ export default function Browser() {
       });
     console.log("accountID", accountId);
     console.log("playername", playerName);
-    console.log("player", playerName);
   };
  
 
@@ -135,14 +134,6 @@ export default function Browser() {
             </Button>
           </Grid>
         </Grid>
-        {avatarName && (
-          <Stack direction="row" alignItems="center" spacing={1}>
-            <Avatar sx={{ width: 96, height: 96 }} />
-            <Typography variant="h3" color="white">
-              {avatarName}
-            </Typography>
-          </Stack>
-        )}
       </Stack>
     </Container>
   );

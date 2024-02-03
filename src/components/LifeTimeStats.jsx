@@ -7,8 +7,10 @@ import {
   Grid,
   MenuItem,
   FormControl,
+  Avatar,
+  Typography,
 } from "@mui/material";
-import { Route, useParams } from "react-router-dom";
+import { Route, useLocation, useParams } from "react-router-dom";
 import NoRankedStats from "./NoRankedStats";
 import RankedStats from "./RankedStats";
 
@@ -33,6 +35,7 @@ export default function LifetimeStats() {
     "duo-fpp",
     "squad-fpp",
   ];
+  const location = useLocation()
 
   useEffect(() => {
     fetch(`https://api.pubg.com/shards/steam/seasons`, {
@@ -61,7 +64,7 @@ export default function LifetimeStats() {
           console.log("Season", data.data);
         }
       });
-    accountIdParam && platformParam;
+    accountIdParam && platformParam && location;
     fetch(
       `https://api.pubg.com/shards/${platformParam}/players/${accountIdParam}/seasons/${season}`,
       {
@@ -89,7 +92,8 @@ export default function LifetimeStats() {
           console.log("LifetimeStats", data);
         }
       });
-  }, [accountIdParam, error, pubgKey, platformParam, season]);
+      console.log('location', location)
+  }, [accountIdParam, error, pubgKey, platformParam, season, location]);
 
   const switchSeason = (e) => {
     e.preventDefault();
@@ -97,6 +101,15 @@ export default function LifetimeStats() {
   };
 
   return (
+    <>
+    {location && (
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Avatar sx={{ width: 96, height: 96 }} />
+            <Typography variant="h3" color="white">
+              {location.state}
+            </Typography>
+          </Stack>
+        )}
     <Stack width="100%" marginBottom={20}>
       <Grid container p={0} justifyContent="space-around" marginBottom={10}>
         <Grid item xs={4} md={1.5} p={1}>
@@ -175,11 +188,10 @@ export default function LifetimeStats() {
         <NoRankedStats
           stats={playerLifetime.attributes.gameModeStats[gameMode]}
         />
-      ) : (
-        error
-      )}
+      ) : ''}
 
       {ranked && <RankedStats seasonsList={seasonsList} />}
     </Stack>
+    </>
   );
 }
