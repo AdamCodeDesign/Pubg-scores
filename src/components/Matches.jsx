@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-// import { gzip } from 'pako';
+import  { useEffect, useState } from "react";
 
 
 export default function Matches() {
@@ -7,13 +6,11 @@ export default function Matches() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`https://telemetry-cdn.pubg.com/pc-krjp/2018/01/01/0/0/38641b16-b7a4-11ee-9a11-e6b049fbe2eb-telemetry.json`, {
+    fetch(`https://api.pubg.com/shards/steam/matches/b5935836-e99d-430e-9727-090bbbcc4d94`, {
       headers: {
         'Authorization': `Bearer ${pubgKey}`,
         'Accept': "application/vnd.api+json",
-        'Accept-Encoding': 'gzip'
       },
-      // body: gzip(JSON.stringify(payload))
     })
       .then((response) => {
         if (response.ok) {

@@ -5,4 +5,13 @@ body {
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
+  margin: 0 auto;
+}
+
+.footer {
+  text-align: center;
+  color: white;
+  opacity: 0.7;
+  position: fixed;
+  bottom: 0;
 }

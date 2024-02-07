@@ -6,11 +6,9 @@ import {
   Button,
   Grid,
   MenuItem,
-  FormControl,
-  Avatar,
-  Typography,
+
 } from "@mui/material";
-import { Route, useLocation, useParams } from "react-router-dom";
+import {  useLocation, useParams } from "react-router-dom";
 import NoRankedStats from "./NoRankedStats";
 import RankedStats from "./RankedStats";
 
@@ -35,7 +33,7 @@ export default function LifetimeStats() {
     "squad-fpp",
   ];
   const location = useLocation()
-  const avatarName = location.state.map(el => el.attributes.name)
+  // const avatarName = location.state.map(el => el.attributes.name)
 
   useEffect(() => {
     fetch(`https://api.pubg.com/shards/steam/seasons`, {
@@ -102,14 +100,14 @@ export default function LifetimeStats() {
 
   return (
     <>
-    {avatarName && (
+    {/* {avatarName && (
           <Stack direction="row" alignItems="center" spacing={1}>
             <Avatar sx={{ width: 96, height: 96 }} />
             <Typography variant="h3" color="white">
               {avatarName}
             </Typography>
           </Stack>
-        )}
+        )} */}
     <Stack width="100%" marginBottom={20}>
       <Grid container p={0} justifyContent="space-around" marginBottom={10}>
         <Grid item xs={4} md={1.5} p={1}>

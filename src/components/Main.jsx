@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import LifetimeStats from "./LifeTimeStats";
 import Error from "./Error";

@@ -2,25 +2,51 @@ import {
   Stack,
   TextField,
   Button,
-  Avatar,
   MenuItem,
-  Typography,
   Grid,
   Container,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 export default function Browser() {
   const [playerName, setPlayerName] = useState("");
-  const [avatarName, setAvatarName] = useState("");
   const [accountId, setAccountID] = useState("");
   const [platform, setPlatform] = useState("");
   const { accountIdParam } = useParams();
-  console.log("idParametr", accountIdParam);
+  console.log("idParam", accountIdParam);
+  const [error, setError] = useState("");
+
 
   const navigate = useNavigate();
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
+  const steamKey = import.meta.env.VITE_APP_STEAM_KEY;
+
+  // useEffect(() => {
+  //   fetch(`http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?appid=578080`, {
+  //     // headers: {
+  //     //   'Authorization': `Bearer ${steamKey}`,
+  //     //   // 'Accept': "application/vnd.api+json",
+  //     // },
+  //   })
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         return response.json();
+  //       }
+  //       return {
+  //         error: "Cosik poszło nie tak",
+  //       };
+  //     })
+  //     .then((data) => {
+  //       if (data.error) {
+  //         setError(data.error);
+  //         console.log(error);
+  //       } else {
+  //         setError("");
+  //         console.log("Player Online", data);
+  //       }
+  //     });
+  // }, [error, steamKey]);
 
   const handleChange = () => {
     fetch(
@@ -42,13 +68,11 @@ export default function Browser() {
       })
       .then((data) => {
         if (data.error) {
-          setAvatarName(false);
           setAccountID(false);
           navigate(`/error/${data.error}`);
         } else {
           console.log("Player", data.data);
           setAccountID(data.data.map((el) => el.id));
-          setAvatarName(data.data.map((el) => el.attributes.name));
           navigate(`/stats/${platform}/${data.data.map((el) => el.id)}`, {state: data.data})
         }
       });
@@ -66,7 +90,7 @@ export default function Browser() {
   console.log("accountID", accountId);
   return (
     <Container maxWidth="md" sx={{textAlign:'center'}}>
-      <Stack spacing={10} alignItems="center" sx={{ width: "100%" }}>
+      <Stack spacing={10} alignItems="center" sx={{ width: "100%" , marginTop:'100px'}}>
        <NavLink to='/' style={{margin:'0 auto'}}><img
           style={{ width: "100%" }}
           src="src/assets/PUBG_Logo_White.png"
