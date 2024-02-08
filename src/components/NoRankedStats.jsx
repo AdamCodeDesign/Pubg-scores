@@ -5,7 +5,7 @@ export default function NoRankedStats({ stats }) {
   return (
     <Box
       bgcolor="grey.900"
-      sx={{ borderRadius: "16px", opacity: 0.9 }}
+      sx={{ borderRadius: "16px"}}
       color="white"
     >
       <Grid

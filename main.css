@@ -15,3 +15,6 @@ body {
   position: fixed;
   bottom: 0;
 }
+img {
+  z-index: 1;
+}

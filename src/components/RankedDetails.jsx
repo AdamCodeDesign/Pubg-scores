@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
+import zIndex from "@mui/material/styles/zIndex";
 
 export default function RankedDetails({ stats }) {
   return (
@@ -7,7 +7,7 @@ export default function RankedDetails({ stats }) {
       {stats ? (
         <Box
           bgcolor="grey.900"
-          sx={{ borderRadius: "16px", opacity: 0.8 }}
+          sx={{ borderRadius: "16px" }}
           color="white"
         >
           <Grid
@@ -20,7 +20,7 @@ export default function RankedDetails({ stats }) {
             <Grid item xs={10} md={10} p={1} margin={2}>
               <Typography sx={{ fontSize: "2em" }}>RANK STATS</Typography>
             </Grid>
-            <Grid item xs={10} md={10} p={1} margin={2}>
+            <Grid item xs={5} md={5} p={1} margin={2}>
               <Box>
                 <Typography
                   sx={{ color: "warning.main", paddingTop: 2, fontSize: "2em" }}
@@ -33,15 +33,38 @@ export default function RankedDetails({ stats }) {
                 </Typography>
               </Box>
             </Grid>
+            <Grid item xs={5} md={5} p={1} margin={2}>
+              <Box>
+                {" "}
+                <img
+                  src={`src/assets/rank_img/${stats.currentTier.tier.toLowerCase()}.png`}
+                  height={240}
+                />
+                <Typography fontSize="1.5em">Tier</Typography>{" "}
+                <Typography fontSize="1.5em" color="warning.main">
+                  {stats.currentTier.tier}
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={5} md={3} p={1} margin={1}>
+              <Box>
+                <Typography fontSize="1.5em">K/D</Typography>
+                <Typography fontSize="1.5em" color="warning.main">
+                  {(stats.kills / stats.deaths).toFixed(2)}
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={5} md={3} p={1} margin={1}>
+              <Box>
+                <Typography fontSize="1.5em">Avg damageDealt</Typography>
+                <Typography fontSize="1.5em" color="warning.main">
+                  {(stats.damageDealt / stats.roundsPlayed).toFixed(0)}
+                </Typography>
+              </Box>
+            </Grid>
 
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
-                {" "}
-                <Box width="80%" margin="0 auto">
-                  <img src="src/assets/cross.svg" height={30} />
-                  <img src="src/assets/cross.svg" height={40} />
-                  <img src="src/assets/cross.svg" height={30} />
-                </Box>
                 <Typography fontSize="1.5em"> All kills</Typography>{" "}
                 <Typography fontSize="1.5em" color="warning.main">
                   {stats.kills}
@@ -51,31 +74,24 @@ export default function RankedDetails({ stats }) {
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <Box margin="0 auto">
-                  <img src="src/assets/Death.png" height={30} />
-                  <img src="src/assets/Death.png" height={40} />
-                  <img src="src/assets/Death.png" height={30} />
-                </Box>
                 <Typography fontSize="1.5em">AVG rank</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
-                  {Math.round(stats.avgRank)}
+                  #{Math.round(stats.avgRank)}
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <img src="src/assets/users-slash.svg" height={40} />
-                <Typography fontSize="1.5em">teamKills</Typography>
+                <Typography fontSize="1.5em">Win Ratio</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
-                  {stats.teamKills}
+                  {(stats.winRatio * 100).toFixed(0)}%
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <img src="src/assets/DBNO.png" height={40} />
                 <Typography fontSize="1.5em">Knockouted Players</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
                   {stats.dBNOs}
@@ -85,103 +101,40 @@ export default function RankedDetails({ stats }) {
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <img src="src/assets/head.svg" height={40} />
-                <Typography fontSize="1.5em">headshot kills</Typography>
+                <Typography fontSize="1.5em">
+                  Kill/Death assist ratio
+                </Typography>
                 <Typography fontSize="1.5em" color="warning.main">
-                  {stats.headshotKills}
+                  {stats.kda.toFixed(2)}
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <img src="src/assets/handshake-simple-solid.svg" height={40} />
                 <Typography fontSize="1.5em">assists</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
                   {stats.assists}
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={5} md={3} p={1} margin={1}>
-              <Box>
-                <img src="src/assets/explosion-solid.svg" height={40} />{" "}
-                <Typography fontSize="1.5em">Avg damageDealt</Typography>
-                <Typography fontSize="1.5em" color="warning.main">
-                  {(stats.damageDealt / stats.roundsPlayed).toFixed(0)}
-                </Typography>
-              </Box>
-            </Grid>
+
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <img
-                  src="src/assets/bow-and-arrow.svg"
-                  height={40}
-                  style={{ transform: "rotate(90deg)" }}
-                />
-                <Typography fontSize="1.5em">longestKill</Typography>
-                <Typography fontSize="1.5em" color="warning.main">
-                  {stats.longestKill.toFixed()} m
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={5} md={3} p={1} margin={1}>
-              <Box>
-                {" "}
-                <img src="src/assets/ranking-star-solid.svg" height={40} />
                 <Typography fontSize="1.5em">top10s</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
-                  {stats.top10s}
+                  {(stats.top10Ratio * 100).toFixed(0)}%
                 </Typography>
               </Box>
             </Grid>
+
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <img src="src/assets/car-side-solid.svg" height={40} />
-                <Typography fontSize="1.5em">rideDistance</Typography>
-                <Typography fontSize="1.5em" color="warning.main">
-                  {(stats.rideDistance / 1000).toFixed()} km
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={5} md={3} p={1} margin={1}>
-              <Box>
-                {" "}
-                <img src="src/assets/run.svg" height={40} />
-                <Typography fontSize="1.5em">walkDistance</Typography>
-                <Typography fontSize="1.5em" color="warning.main">
-                  {(stats.walkDistance / 1000).toFixed()} km
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={5} md={3} p={1} margin={1}>
-              <Box>
-                {" "}
-                <img src="src/assets/heart-pulse-fill.svg" height={40} />
-                <Typography fontSize="1.5em">Reanimations</Typography>
-                <Typography fontSize="1.5em" color="warning.main">
-                  {stats.revives}
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={5} md={3} p={1} margin={1}>
-              <Box>
-                {" "}
-                <img src="src/assets/gamepad.svg" height={40} />
                 <Typography fontSize="1.5em">Rounds Played</Typography>{" "}
                 <Typography fontSize="1.5em" color="warning.main">
                   {stats.roundsPlayed}
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid item xs={5} md={3} p={1} margin={1}>
-              <Box>
-                <img src="src/assets/Vehicle_Explosion.png" height={40} />
-                <Typography fontSize="1.5em">Vehicle Destroys</Typography>
-                <Typography fontSize="1.5em" color="warning.main">
-                  {" "}
-                  {stats.vehicleDestroys}
                 </Typography>
               </Box>
             </Grid>
