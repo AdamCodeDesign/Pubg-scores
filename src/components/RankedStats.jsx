@@ -16,10 +16,10 @@ export default function RankedStats(seasonsList) {
   const [rankedSeason, setRankedSeason] = useState("");
   let pcSeason = seasonsList.seasonsList
     .filter((el) => el.id.includes("pc"))
-    .toSpliced(0, 6);
+    .toSpliced(0, 6).reverse();
   let consoleSeason = seasonsList.seasonsList
     .filter((el) => el.id.includes("console"))
-    .toSpliced(0, 4);
+    .toSpliced(0, 4).reverse();
   const [rankedStats, setRankedStats] = useState(null);
   const [rankedDetails, setRankedDetails] = useState(false);
   const [rankedGameMode, setRankedGameMode] = useState([]);
@@ -84,21 +84,19 @@ export default function RankedStats(seasonsList) {
             color="warning"
             sx={{ bgcolor: "white", borderRadius: "6px", padding: "0px" }}
           >
-            <MenuItem value="division.bro.official.pc-2018-27">
-              Season 27
-            </MenuItem>{" "}
+           
             {platformParam === "steam" || platformParam === "kakao"
               ? pcSeason.map((el, idx) => {
                   return (
                     <MenuItem key={el.id} value={el.id}>
-                      Season {idx + 7}
+                      Season {pcSeason.length - idx}
                     </MenuItem>
                   );
                 })
               : consoleSeason.map((el, idx) => {
                   return (
                     <MenuItem key={el.id} value={el.id}>
-                      Season {idx + 7}
+                      Season {pcSeason.length - idx}
                     </MenuItem>
                   );
                 })}

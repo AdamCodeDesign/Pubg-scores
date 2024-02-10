@@ -6,7 +6,7 @@ import {
   Grid,
   Container,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 
 export default function Browser() {
@@ -112,10 +112,8 @@ export default function Browser() {
               variant="filled"
               sx={{
                 width: "100%",
-                color: "rgba(170,170,170,0.5)",
-                bgcolor: "rgba(170,170,170,0.5)",
+                bgcolor: "white",
                 fontSize: "1em",
-                border: "1px solid white",
                 borderRadius: "6px",
               }}
             >
@@ -131,10 +129,8 @@ export default function Browser() {
               sx={{
                 width: "100%",
                 input: {
-                  color: "white",
-                  bgcolor: "rgba(170,170,170,0.5)",
+                  bgcolor: "white",
                   fontSize: "1em",
-                  border: "1px solid white",
                   borderRadius: "6px",
                 },
               }}

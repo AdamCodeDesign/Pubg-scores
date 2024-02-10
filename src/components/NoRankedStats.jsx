@@ -5,7 +5,7 @@ export default function NoRankedStats({ stats }) {
   return (
     <Box
       bgcolor="grey.900"
-      sx={{ borderRadius: "16px"}}
+      sx={{ borderRadius: "16px", opacity:0.8}}
       color="white"
     >
       <Grid
@@ -28,7 +28,7 @@ export default function NoRankedStats({ stats }) {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={5} md={3} p={1} margin={1} justifyContent="center">
+        <Grid item xs={5} md={3} p={1} margin={1} justifyContent="center" >
           <Box>
             <img src="src/assets/Death.png" height={40} />
             <Typography fontSize="1.5em">Avg kills/game</Typography>

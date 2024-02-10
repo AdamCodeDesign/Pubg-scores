@@ -1,5 +1,4 @@
 import { Box, Grid, Typography } from "@mui/material";
-import zIndex from "@mui/material/styles/zIndex";
 
 export default function RankedDetails({ stats }) {
   return (
