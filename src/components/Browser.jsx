@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import {  useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
+import logo from '../assets/PUBG_Logo_White.png';
 
 export default function Browser() {
   const [playerName, setPlayerName] = useState("");
@@ -93,7 +94,7 @@ export default function Browser() {
       <Stack spacing={10} alignItems="center" sx={{ width: "100%" , marginTop:'100px'}}>
        <NavLink to='/' style={{margin:'0 auto'}}><img
           style={{ width: "100%" }}
-          src="src/assets/PUBG_Logo_White.png"
+          src={logo}
         /></NavLink>
 
         <Grid
