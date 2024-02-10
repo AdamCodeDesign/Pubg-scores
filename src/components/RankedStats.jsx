@@ -16,10 +16,10 @@ export default function RankedStats(seasonsList) {
   const [rankedSeason, setRankedSeason] = useState("");
   let pcSeason = seasonsList.seasonsList
     .filter((el) => el.id.includes("pc"))
-    .toSpliced(0, 6).reverse();
+    .toSpliced(0, 6);
   let consoleSeason = seasonsList.seasonsList
     .filter((el) => el.id.includes("console"))
-    .toSpliced(0, 4).reverse();
+    .toSpliced(0, 4);
   const [rankedStats, setRankedStats] = useState(null);
   const [rankedDetails, setRankedDetails] = useState(false);
   const [rankedGameMode, setRankedGameMode] = useState([]);
@@ -89,14 +89,14 @@ export default function RankedStats(seasonsList) {
               ? pcSeason.map((el, idx) => {
                   return (
                     <MenuItem key={el.id} value={el.id}>
-                      Season {pcSeason.length - idx}
+                      Season {idx + 7}
                     </MenuItem>
                   );
                 })
               : consoleSeason.map((el, idx) => {
                   return (
                     <MenuItem key={el.id} value={el.id}>
-                      Season {pcSeason.length - idx}
+                      Season {idx + 7}
                     </MenuItem>
                   );
                 })}
