@@ -25,3 +25,4 @@ gif jako tło a na pierwszym planie zołnierz celujący w statystyki po prawej s
 zrobic by aktywne staty pokazywaly tez aktywny button, np jak sie odswiezy stronke
 
 avatar zrobiony lecz teraz nie dziala wysyłanie linka np do kolegi bo avatarName jest brany z fetch z Browser na click
+deploy test
