@@ -1,14 +1,14 @@
 import { Box, Grid, Typography } from "@mui/material";
 import Chicken from "../assets/chicken-oven.svg";
-import Bronze from "../assets/rank_img/Bronze.png";
-import Diamond from "../assets/rank_img/Diamond.png";
-import Elite from "../assets/rank_img/Elite.png";
-import Gold from "../assets/rank_img/Gold.png";
-import Grandmaster from "../assets/rank_img/Grandmaster.png";
-import Master from "../assets/rank_img/Master.png";
-import Platinum from "../assets/rank_img/Platinum.png";
-import Silver from "../assets/rank_img/Silver.png";
-import Unranked from "../assets/rank_img/Unranked.png";
+import Bronze from "../assets/rank_img/bronze.png";
+import Diamond from "../assets/rank_img/diamond.png";
+import Elite from "../assets/rank_img/elite.png";
+import Gold from "../assets/rank_img/gold.png";
+import Grandmaster from "../assets/rank_img/grandmaster.png";
+import Master from "../assets/rank_img/master.png";
+import Platinum from "../assets/rank_img/platinum.png";
+import Silver from "../assets/rank_img/silver.png";
+import Unranked from "../assets/rank_img/unranked.png";
 
 export default function RankedDetails({ stats }) {
 
