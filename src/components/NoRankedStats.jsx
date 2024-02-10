@@ -46,7 +46,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1} justifyContent="center" >
           <Box>
             <img src={kills} height={40} />
-            <Typography fontSize="1.5em">Avg kills/game</Typography>
+            <Typography fontSize="1.5em">Avg Kills/Game</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {KD.toFixed(2)}
             </Typography>
@@ -60,7 +60,7 @@ export default function NoRankedStats({ stats }) {
               <img src={allKills} height={40} />
               <img src={allKills} height={30} />
             </Box>
-            <Typography fontSize="1.5em"> All kills</Typography>{" "}
+            <Typography fontSize="1.5em"> All Kills</Typography>{" "}
             <Typography fontSize="1.5em" color="warning.main">
               {stats.kills}
             </Typography>
@@ -74,7 +74,7 @@ export default function NoRankedStats({ stats }) {
               <img src={kills} height={40} />
               <img src={kills} height={30} />
             </Box>
-            <Typography fontSize="1.5em">roundMostKills</Typography>
+            <Typography fontSize="1.5em">Most Kills/Round</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.roundMostKills}
             </Typography>
@@ -84,7 +84,7 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <img src={teamKills} height={40} />
-            <Typography fontSize="1.5em">teamKills</Typography>
+            <Typography fontSize="1.5em">Team Kills</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.teamKills}
             </Typography>
@@ -94,7 +94,7 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <img src={knockout} height={40} />
-            <Typography fontSize="1.5em">Knockouted Players</Typography>
+            <Typography fontSize="1.5em">Knocked-out Players</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.dBNOs}
             </Typography>
@@ -104,7 +104,7 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <img src={headshot} height={40} />
-            <Typography fontSize="1.5em">headshot kills</Typography>
+            <Typography fontSize="1.5em">Headshot Kills</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.headshotKills}
             </Typography>
@@ -114,7 +114,7 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <img src={assists} height={40} />
-            <Typography fontSize="1.5em">assists</Typography>
+            <Typography fontSize="1.5em">Assists</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.assists}
             </Typography>
@@ -123,7 +123,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             <img src={avgDamage} height={40} />{" "}
-            <Typography fontSize="1.5em">Avg damageDealt</Typography>
+            <Typography fontSize="1.5em">Avg Damage</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {(stats.damageDealt / stats.roundsPlayed).toFixed(0)}
             </Typography>
@@ -137,7 +137,7 @@ export default function NoRankedStats({ stats }) {
               height={40}
               style={{ transform: "rotate(90deg)" }}
             />
-            <Typography fontSize="1.5em">longestKill</Typography>
+            <Typography fontSize="1.5em">Longest Kill</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.longestKill.toFixed()} m
             </Typography>
@@ -147,7 +147,7 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <img src={top10} height={40} />
-            <Typography fontSize="1.5em">top10s</Typography>
+            <Typography fontSize="1.5em">Top 10</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.top10s}
             </Typography>
@@ -157,7 +157,7 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <img src={rideDistance} height={40} />
-            <Typography fontSize="1.5em">rideDistance</Typography>
+            <Typography fontSize="1.5em">Ride Distance</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {(stats.rideDistance / 1000).toFixed()} km
             </Typography>
@@ -167,7 +167,7 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <img src={walkDistance} height={40} />
-            <Typography fontSize="1.5em">walkDistance</Typography>
+            <Typography fontSize="1.5em">Walk Distance</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {(stats.walkDistance / 1000).toFixed()} km
             </Typography>

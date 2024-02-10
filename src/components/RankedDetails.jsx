@@ -56,7 +56,6 @@ export default function RankedDetails({ stats }) {
                   src={rankImg((stats.currentTier.tier).toLowerCase())}
                   height={240}
                 />
-                <Typography fontSize="1.5em">Tier</Typography>{" "}
                 <Typography fontSize="1.5em" color="warning.main">
                   {(stats.currentTier.tier).toLowerCase()}
                 </Typography>
@@ -72,7 +71,7 @@ export default function RankedDetails({ stats }) {
             </Grid>
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
-                <Typography fontSize="1.5em">Avg damageDealt</Typography>
+                <Typography fontSize="1.5em">Avg Damage</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
                   {(stats.damageDealt / stats.roundsPlayed).toFixed(0)}
                 </Typography>
@@ -81,7 +80,7 @@ export default function RankedDetails({ stats }) {
 
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
-                <Typography fontSize="1.5em"> All kills</Typography>{" "}
+                <Typography fontSize="1.5em"> All Kills</Typography>{" "}
                 <Typography fontSize="1.5em" color="warning.main">
                   {stats.kills}
                 </Typography>
@@ -90,7 +89,7 @@ export default function RankedDetails({ stats }) {
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <Typography fontSize="1.5em">AVG rank</Typography>
+                <Typography fontSize="1.5em">AVG Rank</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
                   #{Math.round(stats.avgRank)}
                 </Typography>
@@ -108,7 +107,7 @@ export default function RankedDetails({ stats }) {
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <Typography fontSize="1.5em">Knockouted Players</Typography>
+                <Typography fontSize="1.5em">Knocked-out Players</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
                   {stats.dBNOs}
                 </Typography>
@@ -118,7 +117,7 @@ export default function RankedDetails({ stats }) {
               <Box>
                 {" "}
                 <Typography fontSize="1.5em">
-                  Kill/Death assist ratio
+                  K/D assist ratio
                 </Typography>
                 <Typography fontSize="1.5em" color="warning.main">
                   {stats.kda.toFixed(2)}
@@ -128,7 +127,7 @@ export default function RankedDetails({ stats }) {
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <Typography fontSize="1.5em">assists</Typography>
+                <Typography fontSize="1.5em">Assists</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
                   {stats.assists}
                 </Typography>
@@ -138,7 +137,7 @@ export default function RankedDetails({ stats }) {
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <Typography fontSize="1.5em">top10s</Typography>
+                <Typography fontSize="1.5em">Top 10</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
                   {(stats.top10Ratio * 100).toFixed(0)}%
                 </Typography>
