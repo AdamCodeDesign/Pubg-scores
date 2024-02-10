@@ -1,14 +1,31 @@
 import { Box, Grid, Typography } from "@mui/material";
+import Chicken from "../assets/chicken-oven.svg";
+import Bronze from "../assets/rank_img/Bronze.png";
+import Diamond from "../assets/rank_img/Diamond.png";
+import Elite from "../assets/rank_img/Elite.png";
+import Gold from "../assets/rank_img/Gold.png";
+import Grandmaster from "../assets/rank_img/Grandmaster.png";
+import Master from "../assets/rank_img/Master.png";
+import Platinum from "../assets/rank_img/Platinum.png";
+import Silver from "../assets/rank_img/Silver.png";
+import Unranked from "../assets/rank_img/Unranked.png";
 
 export default function RankedDetails({ stats }) {
+
+  const rankImg = (rank) => {
+    if (rank === "Bronze"){return Bronze}
+    if (rank === "Silver"){return Silver}
+    if (rank === "Gold"){return Gold}
+    if (rank === "Platinum"){return Platinum}
+    if (rank === "Master"){return Master}
+    if (rank === "Grandmaster"){return Grandmaster}
+    if (rank === "Diamond"){return Diamond}
+    if (rank === "Elite"){return Elite}
+    if (rank === "Unranked"){return Unranked}};
   return (
     <>
       {stats ? (
-        <Box
-          bgcolor="grey.900"
-          sx={{ borderRadius: "16px" }}
-          color="white"
-        >
+        <Box bgcolor="grey.900" sx={{ borderRadius: "16px" }} color="white">
           <Grid
             container
             justifyContent="space-evenly"
@@ -26,7 +43,7 @@ export default function RankedDetails({ stats }) {
                 >
                   WINNER WINNER CHICKEN DINNER
                 </Typography>
-                <img src="src/assets/chicken-oven.svg" height={100} />
+                <img src={Chicken} height={100} />
                 <Typography fontSize="4em" color="#76ff03">
                   {stats.wins}
                 </Typography>
@@ -36,7 +53,7 @@ export default function RankedDetails({ stats }) {
               <Box>
                 {" "}
                 <img
-                  src={`src/assets/rank_img/${stats.currentTier.tier.toLowerCase()}.png`}
+                  src={rankImg(stats.currentTier.tier)}
                   height={240}
                 />
                 <Typography fontSize="1.5em">Tier</Typography>{" "}

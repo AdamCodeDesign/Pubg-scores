@@ -1,4 +1,19 @@
 import { Box, Grid, Typography } from "@mui/material";
+import chicken from '../assets/chicken-oven.svg';
+import kills from '../assets/Death.png';
+import allKills from '../assets/cross.svg';
+import teamKills from '../assets/users-slash.svg';
+import knockout from '../assets/DBNO.png';
+import headshot from '../assets/head.svg';
+import assists from '../assets/handshake-simple-solid.svg';
+import avgDamage from '../assets/explosion-solid.svg';
+import longestKill from '../assets/Death.png';
+import top10 from '../assets/ranking-star-solid.svg';
+import rideDistance from '../assets/car-side-solid.svg';
+import walkDistance from '../assets/run.svg';
+import reanimation from '../assets/heart-pulse-fill.svg';
+import rounds from '../assets/gamepad.svg';
+import vehicle from '../assets/Vehicle_Explosion.png';
 
 export default function NoRankedStats({ stats }) {
   const KD = stats.kills / stats.roundsPlayed;
@@ -22,7 +37,7 @@ export default function NoRankedStats({ stats }) {
             >
               WINNER WINNER CHICKEN DINNER
             </Typography>
-            <img src="src/assets/chicken-oven.svg" height={100} />
+            <img src={chicken} height={100} />
             <Typography fontSize="4em" color="#76ff03">
               {stats.wins}
             </Typography>
@@ -30,7 +45,7 @@ export default function NoRankedStats({ stats }) {
         </Grid>
         <Grid item xs={5} md={3} p={1} margin={1} justifyContent="center" >
           <Box>
-            <img src="src/assets/Death.png" height={40} />
+            <img src={kills} height={40} />
             <Typography fontSize="1.5em">Avg kills/game</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {KD.toFixed(2)}
@@ -41,9 +56,9 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <Box width="80%" margin="0 auto">
-              <img src="src/assets/cross.svg" height={30} />
-              <img src="src/assets/cross.svg" height={40} />
-              <img src="src/assets/cross.svg" height={30} />
+              <img src={allKills} height={30} />
+              <img src={allKills} height={40} />
+              <img src={allKills} height={30} />
             </Box>
             <Typography fontSize="1.5em"> All kills</Typography>{" "}
             <Typography fontSize="1.5em" color="warning.main">
@@ -55,9 +70,9 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <Box margin="0 auto">
-              <img src="src/assets/Death.png" height={30} />
-              <img src="src/assets/Death.png" height={40} />
-              <img src="src/assets/Death.png" height={30} />
+              <img src={kills} height={30} />
+              <img src={kills} height={40} />
+              <img src={kills} height={30} />
             </Box>
             <Typography fontSize="1.5em">roundMostKills</Typography>
             <Typography fontSize="1.5em" color="warning.main">
@@ -68,7 +83,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
-            <img src="src/assets/users-slash.svg" height={40} />
+            <img src={teamKills} height={40} />
             <Typography fontSize="1.5em">teamKills</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.teamKills}
@@ -78,7 +93,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
-            <img src="src/assets/DBNO.png" height={40} />
+            <img src={knockout} height={40} />
             <Typography fontSize="1.5em">Knockouted Players</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.dBNOs}
@@ -88,7 +103,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
-            <img src="src/assets/head.svg" height={40} />
+            <img src={headshot} height={40} />
             <Typography fontSize="1.5em">headshot kills</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.headshotKills}
@@ -98,7 +113,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
-            <img src="src/assets/handshake-simple-solid.svg" height={40} />
+            <img src={assists} height={40} />
             <Typography fontSize="1.5em">assists</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.assists}
@@ -107,7 +122,7 @@ export default function NoRankedStats({ stats }) {
         </Grid>
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
-            <img src="src/assets/explosion-solid.svg" height={40} />{" "}
+            <img src={avgDamage} height={40} />{" "}
             <Typography fontSize="1.5em">Avg damageDealt</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {(stats.damageDealt / stats.roundsPlayed).toFixed(0)}
@@ -118,7 +133,7 @@ export default function NoRankedStats({ stats }) {
           <Box>
             {" "}
             <img
-              src="src/assets/bow-and-arrow.svg"
+              src={longestKill}
               height={40}
               style={{ transform: "rotate(90deg)" }}
             />
@@ -131,7 +146,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
-            <img src="src/assets/ranking-star-solid.svg" height={40} />
+            <img src={top10} height={40} />
             <Typography fontSize="1.5em">top10s</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.top10s}
@@ -141,7 +156,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
-            <img src="src/assets/car-side-solid.svg" height={40} />
+            <img src={rideDistance} height={40} />
             <Typography fontSize="1.5em">rideDistance</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {(stats.rideDistance / 1000).toFixed()} km
@@ -151,7 +166,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
-            <img src="src/assets/run.svg" height={40} />
+            <img src={walkDistance} height={40} />
             <Typography fontSize="1.5em">walkDistance</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {(stats.walkDistance / 1000).toFixed()} km
@@ -161,7 +176,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
-            <img src="src/assets/heart-pulse-fill.svg" height={40} />
+            <img src={reanimation} height={40} />
             <Typography fontSize="1.5em">Reanimations</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {stats.revives}
@@ -171,7 +186,7 @@ export default function NoRankedStats({ stats }) {
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
             {" "}
-            <img src="src/assets/gamepad.svg" height={40} />
+            <img src={rounds} height={40} />
             <Typography fontSize="1.5em">Rounds Played</Typography>{" "}
             <Typography fontSize="1.5em" color="warning.main">
               {stats.roundsPlayed}
@@ -180,7 +195,7 @@ export default function NoRankedStats({ stats }) {
         </Grid>
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
-            <img src="src/assets/Vehicle_Explosion.png" height={40} />
+            <img src={vehicle} height={40} />
             <Typography fontSize="1.5em">Vehicle Destroys</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {" "}
