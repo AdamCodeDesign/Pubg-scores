@@ -13,15 +13,15 @@ import Unranked from "../assets/rank_img/Unranked.png";
 export default function RankedDetails({ stats }) {
 
   const rankImg = (rank) => {
-    if (rank === "Bronze"){return Bronze}
-    if (rank === "Silver"){return Silver}
-    if (rank === "Gold"){return Gold}
-    if (rank === "Platinum"){return Platinum}
-    if (rank === "Master"){return Master}
-    if (rank === "Grandmaster"){return Grandmaster}
-    if (rank === "Diamond"){return Diamond}
-    if (rank === "Elite"){return Elite}
-    if (rank === "Unranked"){return Unranked}};
+    if (rank === "bronze"){return Bronze}
+    if (rank === "silver"){return Silver}
+    if (rank === "gold"){return Gold}
+    if (rank === "platinum"){return Platinum}
+    if (rank === "master"){return Master}
+    if (rank === "grandmaster"){return Grandmaster}
+    if (rank === "diamond"){return Diamond}
+    if (rank === "elite"){return Elite}
+    if (rank === "unranked"){return Unranked}};
   return (
     <>
       {stats ? (
@@ -53,12 +53,12 @@ export default function RankedDetails({ stats }) {
               <Box>
                 {" "}
                 <img
-                  src={rankImg(stats.currentTier.tier)}
+                  src={rankImg((stats.currentTier.tier).toLowerCase())}
                   height={240}
                 />
                 <Typography fontSize="1.5em">Tier</Typography>{" "}
                 <Typography fontSize="1.5em" color="warning.main">
-                  {stats.currentTier.tier}
+                  {(stats.currentTier.tier).toLowerCase()}
                 </Typography>
               </Box>
             </Grid>
