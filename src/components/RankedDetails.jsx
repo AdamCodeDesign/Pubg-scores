@@ -36,7 +36,7 @@ export default function RankedDetails({ stats }) {
             <Grid item xs={10} md={10} p={1} margin={2}>
               <Typography sx={{ fontSize: "2em" }}>RANK STATS</Typography>
             </Grid>
-            <Grid item xs={5} md={5} p={1} margin={2}>
+            <Grid item xs={8} md={5} p={1} margin={2}>
               <Box>
                 <Typography
                   sx={{ color: "warning.main", paddingTop: 2, fontSize: "2em" }}
@@ -49,7 +49,7 @@ export default function RankedDetails({ stats }) {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={5} md={5} p={1} margin={2}>
+            <Grid item xs={8} md={5} p={1} margin={2}>
               <Box>
                 {" "}
                 <img
