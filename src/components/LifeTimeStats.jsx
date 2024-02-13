@@ -1,14 +1,7 @@
 import { useEffect, useState } from "react";
 
-import {
-  Stack,
-  TextField,
-  Button,
-  Grid,
-  MenuItem,
-
-} from "@mui/material";
-import {  useLocation, useParams } from "react-router-dom";
+import { Stack, TextField, Button, Grid, MenuItem } from "@mui/material";
+import { useLocation, useParams } from "react-router-dom";
 import NoRankedStats from "./NoRankedStats";
 import RankedStats from "./RankedStats";
 
@@ -32,7 +25,7 @@ export default function LifetimeStats() {
     "duo-fpp",
     "squad-fpp",
   ];
-  const location = useLocation()
+  const location = useLocation();
   // const avatarName = location.state.map(el => el.attributes.name)
 
   useEffect(() => {
@@ -90,7 +83,7 @@ export default function LifetimeStats() {
           console.log("LifetimeStats", data);
         }
       });
-      console.log('location', location)
+    console.log("location", location);
   }, [accountIdParam, error, pubgKey, platformParam, season, location]);
 
   const switchSeason = (e) => {
@@ -100,7 +93,7 @@ export default function LifetimeStats() {
 
   return (
     <>
-    {/* {avatarName && (
+      {/* {avatarName && (
           <Stack direction="row" alignItems="center" spacing={1}>
             <Avatar sx={{ width: 96, height: 96 }} />
             <Typography variant="h3" color="white">
@@ -108,88 +101,90 @@ export default function LifetimeStats() {
             </Typography>
           </Stack>
         )} */}
-    <Stack width="100%" marginBottom={20}>
-      <Grid container p={0} justifyContent="space-around" marginBottom={10}>
-        <Grid item xs={4} md={1.5} p={1}>
-          <TextField
-            fullWidth
-            tabIndex={0}
-            aria-controls="2px"
-            size="small"
-            value={season}
-            onChange={switchSeason}
-            select
-            color="warning"
-            sx={{ bgcolor: "white", borderRadius: "6px", padding: "0px" }}
-          >
-            <MenuItem value="lifetime">Lifetime</MenuItem>{" "}
-            {(platformParam === "steam") | "kakao"
-              ? pcSeason.map((el, idx) => {
-                  return (
-                    <MenuItem key={el.id} value={el.id}>
-                      season {idx + 1}
-                    </MenuItem>
-                  );
-                })
-              : consoleSeason.map((el, idx) => {
-                  return (
-                    <MenuItem key={el.id} value={el.id}>
-                      season {idx + 3}
-                    </MenuItem>
-                  );
-                })}
-          </TextField>
-        </Grid>
-
-        {noRankedGameMode.map((modeName, idx) => (
-          <Grid item xs={4} md={1.5} key={idx} p={1}>
-            <Button
+      <Stack width="100%" marginBottom={20}>
+        <Grid container p={0} justifyContent="space-around" marginBottom={10}>
+          <Grid item xs={4} md={1.5} p={1}>
+            <TextField
+              fullWidth
+              tabIndex={0}
+              aria-controls="2px"
+              size="small"
+              value={season}
+              onChange={switchSeason}
+              select
               color="warning"
+              sx={{ bgcolor: "white", borderRadius: "6px", padding: "0px" }}
+            >
+              <MenuItem value="lifetime">Lifetime</MenuItem>{" "}
+              {(platformParam === "steam") | "kakao"
+                ? pcSeason.map((el, idx) => {
+                    return (
+                      <MenuItem key={el.id} value={el.id}>
+                        season {idx + 1}
+                      </MenuItem>
+                    );
+                  })
+                : consoleSeason.map((el, idx) => {
+                    return (
+                      <MenuItem key={el.id} value={el.id}>
+                        season {idx + 3}
+                      </MenuItem>
+                    );
+                  })}
+            </TextField>
+          </Grid>
+
+          {noRankedGameMode.map((modeName, idx) => (
+            <Grid item xs={4} md={1.5} key={idx} p={1}>
+              <Button
+                color="warning"
+                sx={{
+                  padding: 0,
+                  minHeight: 40,
+                  width: "100%",
+                  "&:focus": { bgcolor: "error.main" },
+                }}
+                size="large"
+                variant="contained"
+                onClick={() => {
+                  setGameMode(`${modeName}`);
+                  setRanked(false);
+                }}
+              >
+                {modeName}
+              </Button>
+            </Grid>
+          ))}
+          <Grid item xs={4} md={1.5} p={1}>
+            <Button
+              color="error"
+              variant="contained"
+              size="medium"
               sx={{
                 padding: 0,
                 minHeight: 40,
                 width: "100%",
                 "&:focus": { bgcolor: "error.main" },
               }}
-              size="large"
-              variant="contained"
               onClick={() => {
-                setGameMode(`${modeName}`);
-                setRanked(false);
+                setRanked(true);
               }}
             >
-              {modeName}
+              rank stats
             </Button>
           </Grid>
-        ))}
-        <Grid item xs={4} md={1.5} p={1}>
-          <Button
-            color="error"
-            variant="contained"
-            size="medium"
-            sx={{
-              padding: 0,
-              minHeight: 40,
-              width: "100%",
-              "&:focus": { bgcolor: "error.main" },
-            }}
-            onClick={() => {
-              setRanked(true);
-            }}
-          >
-            rank stats
-          </Button>
         </Grid>
-      </Grid>
 
-      {playerLifetime && !ranked ? (
-        <NoRankedStats
-          stats={playerLifetime.attributes.gameModeStats[gameMode]}
-        />
-      ) : ''}
+        {playerLifetime && !ranked ? (
+          <NoRankedStats
+            stats={playerLifetime.attributes.gameModeStats[gameMode]}
+          />
+        ) : (
+          ""
+        )}
 
-      {ranked && <RankedStats seasonsList={seasonsList} />}
-    </Stack>
+        {ranked && <RankedStats seasonsList={seasonsList} />}
+      </Stack>
     </>
   );
 }

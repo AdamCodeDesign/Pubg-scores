@@ -1,12 +1,8 @@
-import {
-  Button,
-  Grid,
-  MenuItem,
-  TextField,
-} from "@mui/material";
+import { Button, Grid, MenuItem, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import RankedDetails from "./RankedDetails";
+import Error from "./Error";
 
 export default function RankedStats(seasonsList) {
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
@@ -40,7 +36,7 @@ export default function RankedStats(seasonsList) {
           return response.json();
         }
         return {
-          error: "Cosik poszło nie tak",
+          error: response.status,
         };
       })
       .then((data) => {
@@ -62,6 +58,7 @@ export default function RankedStats(seasonsList) {
     e.preventDefault();
     setRankedSeason(e.target.value);
   };
+
   return (
     <>
       <Grid
@@ -84,7 +81,6 @@ export default function RankedStats(seasonsList) {
             color="warning"
             sx={{ bgcolor: "white", borderRadius: "6px", padding: "0px" }}
           >
-           
             {platformParam === "steam" || platformParam === "kakao"
               ? pcSeason.map((el, idx) => {
                   return (
@@ -102,6 +98,7 @@ export default function RankedStats(seasonsList) {
                 })}
           </TextField>
         </Grid>
+
         {rankedGameMode.length > 0
           ? rankedGameMode.map((modeName, idx) => (
               <Grid item xs={4} md={2} key={idx} p={1}>
@@ -123,6 +120,8 @@ export default function RankedStats(seasonsList) {
                 </Button>
               </Grid>
             ))
+          : error === 429
+          ? "Serwer busy, try again in a minute"
           : "You have no rank stats in this season"}
         {rankedDetails ? (
           <RankedDetails

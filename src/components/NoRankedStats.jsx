@@ -7,7 +7,7 @@ import knockout from '../assets/DBNO.png';
 import headshot from '../assets/head.svg';
 import assists from '../assets/handshake-simple-solid.svg';
 import avgDamage from '../assets/explosion-solid.svg';
-import longestKill from '../assets/Death.png';
+import longestKill from '../assets/bow-and-arrow.svg';
 import top10 from '../assets/ranking-star-solid.svg';
 import rideDistance from '../assets/car-side-solid.svg';
 import walkDistance from '../assets/run.svg';

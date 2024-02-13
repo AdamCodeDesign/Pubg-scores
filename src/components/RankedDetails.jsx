@@ -11,17 +11,35 @@ import Silver from "../assets/rank_img/silver.png";
 import Unranked from "../assets/rank_img/unranked.png";
 
 export default function RankedDetails({ stats }) {
-
   const rankImg = (rank) => {
-    if (rank === "bronze"){return Bronze}
-    if (rank === "silver"){return Silver}
-    if (rank === "gold"){return Gold}
-    if (rank === "platinum"){return Platinum}
-    if (rank === "master"){return Master}
-    if (rank === "grandmaster"){return Grandmaster}
-    if (rank === "diamond"){return Diamond}
-    if (rank === "elite"){return Elite}
-    if (rank === "unranked"){return Unranked}};
+    if (rank === "bronze") {
+      return Bronze;
+    }
+    if (rank === "silver") {
+      return Silver;
+    }
+    if (rank === "gold") {
+      return Gold;
+    }
+    if (rank === "platinum") {
+      return Platinum;
+    }
+    if (rank === "master") {
+      return Master;
+    }
+    if (rank === "grandmaster") {
+      return Grandmaster;
+    }
+    if (rank === "diamond") {
+      return Diamond;
+    }
+    if (rank === "elite") {
+      return Elite;
+    }
+    if (rank === "unranked") {
+      return Unranked;
+    }
+  };
   return (
     <>
       {stats ? (
@@ -53,11 +71,11 @@ export default function RankedDetails({ stats }) {
               <Box>
                 {" "}
                 <img
-                  src={rankImg((stats.currentTier.tier).toLowerCase())}
+                  src={rankImg(stats.currentTier.tier.toLowerCase())}
                   height={240}
                 />
                 <Typography fontSize="1.5em" color="warning.main">
-                  {(stats.currentTier.tier).toLowerCase()}
+                  {stats.currentTier.tier.toLowerCase()}
                 </Typography>
               </Box>
             </Grid>
@@ -116,9 +134,7 @@ export default function RankedDetails({ stats }) {
             <Grid item xs={5} md={3} p={1} margin={1}>
               <Box>
                 {" "}
-                <Typography fontSize="1.5em">
-                  K/D assist ratio
-                </Typography>
+                <Typography fontSize="1.5em">K/D assist ratio</Typography>
                 <Typography fontSize="1.5em" color="warning.main">
                   {stats.kda.toFixed(2)}
                 </Typography>
@@ -156,7 +172,7 @@ export default function RankedDetails({ stats }) {
           </Grid>
         </Box>
       ) : (
-        " You have no stats in this season"
+        ""
       )}
     </>
   );
