@@ -16,7 +16,7 @@ import rounds from '../assets/gamepad.svg';
 import vehicle from '../assets/Vehicle_Explosion.png';
 
 export default function NoRankedStats({ stats }) {
-  const KD = stats.kills / stats.roundsPlayed;
+  const KD = stats.kills / stats.losses;
   return (
     <Box
       bgcolor="grey.900"
