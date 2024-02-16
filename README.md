@@ -26,3 +26,7 @@ zrobic by aktywne staty pokazywaly tez aktywny button, np jak sie odswiezy stron
 
 avatar zrobiony lecz teraz nie dziala wysyłanie linka np do kolegi bo avatarName jest brany z fetch z Browser na click
 deploy test
+
+solo-fpp: 244524.67
+czas gry 4min 9 sek = 249
+czas gry 4min 36 sek = 

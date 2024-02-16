@@ -17,10 +17,14 @@ import vehicle from '../assets/Vehicle_Explosion.png';
 
 export default function NoRankedStats({ stats }) {
   const KD = stats.kills / stats.losses;
+  const timeSurvived = stats.timeSurvived;
+  const hours = Math.floor(timeSurvived / 3600);
+  const minutes = Math.round((timeSurvived % 3600) / 60);
+  const gameTime = hours + "h " + minutes + "min";
   return (
     <Box
       bgcolor="grey.900"
-      sx={{ borderRadius: "16px", opacity:0.8}}
+      sx={{ borderRadius: "16px", opacity:0.8, border:"1px solid", borderColor:"error.main"}}
       color="white"
     >
       <Grid
@@ -200,6 +204,16 @@ export default function NoRankedStats({ stats }) {
             <Typography fontSize="1.5em" color="warning.main">
               {" "}
               {stats.vehicleDestroys}
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={5} md={3} p={1} margin={1}>
+          <Box>
+            <img src={vehicle} height={40} />
+            <Typography fontSize="1.5em">Game time</Typography>
+            <Typography fontSize="1.5em" color="warning.main">
+              {" "}
+              {gameTime}
             </Typography>
           </Box>
         </Grid>

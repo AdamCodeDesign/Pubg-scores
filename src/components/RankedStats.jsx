@@ -66,7 +66,7 @@ export default function RankedStats(seasonsList) {
         bgcolor="grey.900"
         justifyContent="space-around"
         p={4}
-        sx={{ borderRadius: "16px", opacity: 0.9 }}
+        sx={{ borderRadius: "16px", opacity: 0.9,  border:"1px solid", borderColor:"error.main" }}
         color="white"
       >
         <Grid item xs={4} md={1.6} p={1}>

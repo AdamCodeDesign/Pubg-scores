@@ -94,7 +94,7 @@ export default function LifetimeStats() {
   return (
     <>
       {avatarName && (
-          <Stack direction="row" alignItems="center" spacing={1}>
+          <Stack direction="row" alignItems="center" spacing={1} sx={{margin:'50px'}}>
             <Avatar sx={{ width: 96, height: 96 }} />
             <Typography variant="h3" color="white">
               {avatarName}
@@ -137,11 +137,13 @@ export default function LifetimeStats() {
           {noRankedGameMode.map((modeName, idx) => (
             <Grid item xs={4} md={1.5} key={idx} p={1}>
               <Button
-                color="warning"
                 sx={{
+                  opacity:'0.8',
+                  bgcolor:"grey.800",
                   padding: 0,
                   minHeight: 40,
                   width: "100%",
+                  "&:hover":{ bgcolor: "grey" },
                   "&:focus": { bgcolor: "error.main" },
                 }}
                 size="large"
@@ -157,13 +159,15 @@ export default function LifetimeStats() {
           ))}
           <Grid item xs={4} md={1.5} p={1}>
             <Button
-              color="error"
               variant="contained"
               size="medium"
               sx={{
+                opacity:'0.8',
+                bgcolor:"grey.800",
                 padding: 0,
                 minHeight: 40,
                 width: "100%",
+                "&:hover":{ bgcolor: "grey" },
                 "&:focus": { bgcolor: "error.main" },
               }}
               onClick={() => {
