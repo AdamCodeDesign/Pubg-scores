@@ -14,6 +14,7 @@ import walkDistance from '../assets/run.svg';
 import reanimation from '../assets/heart-pulse-fill.svg';
 import rounds from '../assets/gamepad.svg';
 import vehicle from '../assets/Vehicle_Explosion.png';
+import time from '../assets/time.png';
 
 export default function NoRankedStats({ stats }) {
   const KD = stats.kills / stats.losses;
@@ -209,8 +210,8 @@ export default function NoRankedStats({ stats }) {
         </Grid>
         <Grid item xs={5} md={3} p={1} margin={1}>
           <Box>
-            <img src={vehicle} height={40} />
-            <Typography fontSize="1.5em">Game time</Typography>
+            <img src={time} height={40} />
+            <Typography fontSize="1.5em">Playing time</Typography>
             <Typography fontSize="1.5em" color="warning.main">
               {" "}
               {gameTime}
