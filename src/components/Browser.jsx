@@ -13,7 +13,7 @@ import logo from "../assets/PUBG_Logo_White.png";
 export default function Browser() {
   const [playerName, setPlayerName] = useState("");
   const [accountId, setAccountID] = useState("");
-  const [platform, setPlatform] = useState("");
+  const [platform, setPlatform] = useState("steam");
   const { accountIdParam } = useParams();
   console.log("idParam", accountIdParam);
   const [error, setError] = useState("");
