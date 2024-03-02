@@ -4,6 +4,7 @@ import { Stack, TextField, Button, Grid, MenuItem, Avatar, Typography } from "@m
 import { useLocation, useParams } from "react-router-dom";
 import NoRankedStats from "./NoRankedStats";
 import RankedStats from "./RankedStats";
+import helmet from "../assets/helmet3.png"
 
 export default function LifetimeStats() {
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
@@ -95,7 +96,7 @@ export default function LifetimeStats() {
     <>
       {avatarName && (
           <Stack  alignItems="center" spacing={1} sx={{margin:'50px'}}>
-            <Avatar sx={{ width: 96, height: 96 }} src="src/assets/helmet3.png"/>
+            <Avatar sx={{ width: 96, height: 96 }} src={helmet}/>
             <Typography variant="h4" color="white">
               {avatarName}
             </Typography>
