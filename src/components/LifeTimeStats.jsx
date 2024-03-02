@@ -94,9 +94,9 @@ export default function LifetimeStats() {
   return (
     <>
       {avatarName && (
-          <Stack direction="row" alignItems="center" spacing={1} sx={{margin:'50px'}}>
-            <Avatar sx={{ width: 96, height: 96 }} />
-            <Typography variant="h3" color="white">
+          <Stack  alignItems="center" spacing={1} sx={{margin:'50px'}}>
+            <Avatar sx={{ width: 96, height: 96 }} src="src/assets/helmet3.png"/>
+            <Typography variant="h4" color="white">
               {avatarName}
             </Typography>
           </Stack>
