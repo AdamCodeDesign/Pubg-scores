@@ -1,4 +1,5 @@
 body {
+  height: fit-content;
   background-color: black;
   background-image: url(src/assets/bgd1.jpeg);
   background-repeat: no-repeat;
