@@ -1,12 +1,11 @@
 body {
-  height: fit-content;
   background-color: black;
   background-image: url(src/assets/bgd1.jpeg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  /* background-size: cover; */
-  margin: 0 auto;
+  background-size: cover;
+  margin: 0;
 }
 
 .footer {
