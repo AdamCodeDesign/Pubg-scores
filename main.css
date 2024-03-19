@@ -13,7 +13,7 @@ body {
   background-image: url(src/assets/bgd1.jpeg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: auto;
+  background-size: 1920px 1080px;
   background-attachment:fixed;
 }
 .footer {
