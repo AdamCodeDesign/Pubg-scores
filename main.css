@@ -12,7 +12,7 @@ body {
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
-  transition: height 999999s;
+  transition: height 3s;
 }
 
 .footer {
