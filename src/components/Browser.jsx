@@ -68,9 +68,9 @@ export default function Browser() {
       <Stack
         spacing={10}
         alignItems="center"
-        sx={{ width: "100%", marginTop: "100px" }}
+        sx={{ width: "100%" }}
       >
-        <NavLink to="/" style={{ margin: "0 auto" }}>
+        <NavLink to="/" style={{ margin: "50px auto" }}>
           <img style={{ width: "100%" }} src={logo} />
         </NavLink>
 
