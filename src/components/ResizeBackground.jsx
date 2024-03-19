@@ -4,7 +4,7 @@ import $ from 'jquery'; // Import jQuery
 function ResizeBackground() {
     useEffect(() => {
         const resizeBackground = () => {
-            $('.bgd').height(window.innerHeight);
+            $('.bgd').height(window.innerHeight + 1600);
         };
 
         // Call resizeBackground on window resize
