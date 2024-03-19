@@ -1,15 +1,16 @@
 body {
+  margin: 0;
+  background-color: black;
+}
+.bgd{
+  height: 100%;
   background-color: black;
   background-image: url(src/assets/bgd1.jpeg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  background-size: 100%;
-  margin: 0;
+  background-size: cover;
 }
-/* .bgd{
-  height: 100dvh;
-} */
 .footer {
   text-align: center;
   color: white;

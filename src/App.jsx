@@ -8,8 +8,8 @@ import Steam from "./components/Steam";
 
 function App() {
   return (
-    <div className="bgd">
-      <Container maxWidth="lg">
+    <>
+      <Container maxWidth="lg" className="bgd">
         <HashRouter>
           <Browser />
           {/* <Matches /> */}
@@ -18,7 +18,7 @@ function App() {
       </Container>
       <Steam />
       <Footer />
-    </div>
+    </>
   );
 }
 
