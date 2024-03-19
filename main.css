@@ -6,9 +6,8 @@ body {
   background-color: black;
 }
 .bgd-container{
-  margin-top: 100px;
-  height: 2000px;
-  width: 100vw;
+  height: 1080px;
+  width: 1920px;
 }
 .bgd{
   height: 100%;
@@ -17,7 +16,7 @@ body {
   background-image: url(src/assets/bgd1.jpeg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 1920px 1080px;
+  background-size: contain;
   background-attachment:fixed;
 }
 .footer {
