@@ -10,7 +10,7 @@ import ResizeBackground from "./components/ResizeBackground";
 function App() {
   return (
     <div className="bgd">
-      {/* <ResizeBackground/> */}
+      <ResizeBackground/>
       <Container maxWidth="lg">
         <HashRouter>
           <Browser />
