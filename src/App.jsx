@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="bgd-container">
       <div className="bgd">
-        <ResizeBackground />
+        {/* <ResizeBackground /> */}
         <Container maxWidth="lg">
           <HashRouter>
             <Browser />
