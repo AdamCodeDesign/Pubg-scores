@@ -9,17 +9,19 @@ import ResizeBackground from "./components/ResizeBackground";
 
 function App() {
   return (
-    <div className="bgd">
-      <ResizeBackground/>
-      <Container maxWidth="lg">
-        <HashRouter>
-          <Browser />
-          {/* <Matches /> */}
-          <Main />
-        </HashRouter>
-      </Container>
-      <Steam />
-      <Footer />
+    <div className="bgd-container">
+      <div className="bgd">
+        <ResizeBackground />
+        <Container maxWidth="lg">
+          <HashRouter>
+            <Browser />
+            {/* <Matches /> */}
+            <Main />
+          </HashRouter>
+        </Container>
+        <Steam />
+        <Footer />
+      </div>
     </div>
   );
 }
