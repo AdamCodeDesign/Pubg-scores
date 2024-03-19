@@ -1,16 +1,20 @@
+
+
 body {
   margin: 0;
   background-color: black;
+  
 }
-.bgd{
-  height: 100%;
+.bgd {
   background-color: black;
   background-image: url(src/assets/bgd1.jpeg);
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  background-size: contain;
+  background-size: cover;
+  transition: height 999999s;
 }
+
 .footer {
   text-align: center;
   color: white;
