@@ -1,12 +1,13 @@
 import  { useEffect, useState } from "react";
 
 
-export default function Matches() {
+export default function Matches({recent10games, platform}) {
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`https://api.pubg.com/shards/steam/matches/b5935836-e99d-430e-9727-090bbbcc4d94`, {
+    recent10games?.map((el,idx )=> {
+    fetch(`https://api.pubg.com/shards/${platform}/matches/${el.id}`, {
       headers: {
         'Authorization': `Bearer ${pubgKey}`,
         'Accept': "application/vnd.api+json",
@@ -26,9 +27,9 @@ export default function Matches() {
           console.log(error);
         } else {
           setError("");
-          console.log("Matches", data);
+          // console.log(`Match${idx}`, data);
         }
       });
-  }, [error, pubgKey]);
+  }, [error, pubgKey, recent10games, platform]);})
   return <div>Samples</div>;
 }

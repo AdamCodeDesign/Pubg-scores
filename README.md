@@ -14,7 +14,6 @@ pubg id  - 578080
 
 pierwszy mecz - "85eccd29-663c-49a1-896c-5dab5080436a"
 ostatni mecz - "fff98039-5a9d-4d75-808b-4f49f6569d21"
-telemetry match id - "38641b16-b7a4-11ee-9a11-e6b049fbe2eb"
 
 <!-- przełaczanie sezonow w rankingu czasem nie zmienia statystyk. Przelaczajac sezon 6 i nizszy sa problemy. Chyna wtedy nie bylo rankingu wiec musze usunac te sezony z tablicy -->
 

@@ -5,6 +5,7 @@ import { useLocation, useParams } from "react-router-dom";
 import NoRankedStats from "./NoRankedStats";
 import RankedStats from "./RankedStats";
 import helmet from "../assets/helmet3.png"
+import Matches from "./Matches";
 
 export default function LifetimeStats() {
   const pubgKey = import.meta.env.VITE_APP_PUBG_KEY;
@@ -28,6 +29,9 @@ export default function LifetimeStats() {
   ];
   const location = useLocation();
   const avatarName = location.state.map(el => el.attributes.name)
+  const playerGames = location.state.map(el => el.relationships.matches.data)
+  const recent10games = playerGames[0].slice(0,10)
+  console.log('recent10games', recent10games)
 
   useEffect(() => {
     fetch(`https://api.pubg.com/shards/steam/seasons`, {
@@ -102,6 +106,7 @@ export default function LifetimeStats() {
             </Typography>
           </Stack>
         )}
+        {/* <Matches recent10games = {recent10games} platform = {platformParam}/> */}
       <Stack width="100%" marginBottom={20}>
         <Grid container p={0} justifyContent="space-around" marginBottom={10}>
           <Grid item xs={4} md={1.5} p={1}>
