@@ -4,9 +4,8 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: 100%;
   margin: 0;
-  height: 100svh;
 }
 /* .bgd{
   height: 100dvh;
