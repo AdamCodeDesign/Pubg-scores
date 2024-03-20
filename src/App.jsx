@@ -9,8 +9,7 @@ import ResizeBackground from "./components/ResizeBackground";
 
 function App() {
   return (
-    <div className="bgd-container">
-      <div className="bgd">
+    <>
         {/* <ResizeBackground /> */}
         <Container maxWidth="lg">
           <HashRouter>
@@ -21,8 +20,7 @@ function App() {
         </Container>
         <Steam />
         <Footer />
-      </div>
-    </div>
+    </>
   );
 }
 

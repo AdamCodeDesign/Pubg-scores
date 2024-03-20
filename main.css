@@ -4,21 +4,13 @@ body {
   margin: 0;
   padding: 0;  
   background-color: black;
-}
-.bgd-container{
-  height: 100%;
-  width: 100vw;
-}
-.bgd{
-  height: 100%;
-  width: 100%;
-  background-color: black;
   background-image: url(src/assets/bgd1.jpeg);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 1920px 1080px;
+  background-size: cover;
   background-attachment:fixed;
 }
+
 .footer {
   text-align: center;
   color: white;
