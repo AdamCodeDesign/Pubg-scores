@@ -18,7 +18,7 @@ function App() {
             <Main />
           </HashRouter>
         </Container>
-        <Steam />
+        {/* <Steam /> */}
         <Footer />
     </>
   );
