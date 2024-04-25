@@ -1,31 +1,28 @@
-# React + Vite
+Pubg Score
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Applications can be run locally using the 'npm run dev' command. App is also
+published on 'https://pubg-score.netlify.app/' for your convenience access to it
 
-Currently, two official plugins are available:
+The page shows Playerunknown's Battlegrounds (PUBG) player statistics. It
+is a battle royale shooter game where the last one alive wins. In the game
+Up to 100 players on the map participate. They take place every year around the world
+e-sports championships where the world's best players meet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To check a player's statistics:
 
-id michala "account.0b19d2698a29457aa50cdffbff2cf01f"
-moje id account.61a88fdd49e641408d15e6210e6db699
- http://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v0002/?gameid
-pubg id  - 578080
+1. Choose a gaming platform
+2. Enter the player's name - case is important because there are over 50 players
+   million, e.g. TGLTN (youtuber)
+3. Select a season - the default is set to lifetime where you can see the results since
+   the beginning of his career
+4. Statistics from various game modes are available in FPP and TPP view
+5. The 'Rank Stats' option is a game mode where you gain a player's rank - the medal changes
+   increases as your rank increases. Here the results are only available after selection
+   specific season after pressing the 'Ranks Stats' button. There is no rank
+   lifetime for this option.
+6. Statistics are updated approximately 15 minutes after the last game
 
-pierwszy mecz - "85eccd29-663c-49a1-896c-5dab5080436a"
-ostatni mecz - "fff98039-5a9d-4d75-808b-4f49f6569d21"
 
-<!-- przełaczanie sezonow w rankingu czasem nie zmienia statystyk. Przelaczajac sezon 6 i nizszy sa problemy. Chyna wtedy nie bylo rankingu wiec musze usunac te sezony z tablicy -->
+API
 
-gdy zmieniam playera w wyszukiwarce na inna platforme to wywala błąd bo Lifestats pobiera platform z Browser
-
-gif jako tło a na pierwszym planie zołnierz celujący w statystyki po prawej stronie ekranu.Statystyki wyswietlane w srodku lunety
-
-zrobic by aktywne staty pokazywaly tez aktywny button, np jak sie odswiezy stronke
-
-avatar zrobiony lecz teraz nie dziala wysyłanie linka np do kolegi bo avatarName jest brany z fetch z Browser na click
-deploy test
-
-solo-fpp: 244524.67
-czas gry 4min 9 sek = 249
-czas gry 4min 36 sek = 
+API limitations were the biggest challenge when building the application. The API initially only allowed 10 requests per MINUTE. Recently, after publishing the application on the website, the game producers granted me faster access (100 RPM), so the application is being further developed and it will be possible to track the results of the last 20 matches
