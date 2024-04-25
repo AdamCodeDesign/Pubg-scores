@@ -26,3 +26,17 @@ To check a player's statistics:
 API
 
 API limitations were the biggest challenge when building the application. The API initially only allowed 10 requests per MINUTE. Recently, after publishing the application on the website, the game producers granted me faster access (100 RPM), so the application is being further developed and it will be possible to track the results of the last 20 matches
+
+
+Used technology
+
+React
+JavaScript
+Vite
+Material UI
+CSS
+HTML
+Rest API
+Node 18.14.1 
+Npm 9.6.2
+Git/GitHub
