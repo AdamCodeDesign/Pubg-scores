@@ -10,16 +10,16 @@ import ResizeBackground from "./components/ResizeBackground";
 function App() {
   return (
     <>
-        {/* <ResizeBackground /> */}
-        <Container maxWidth="lg">
-          <HashRouter>
-            <Browser />
-            {/* <Matches /> */}
-            <Main />
-          </HashRouter>
-        </Container>
-        {/* <Steam /> */}
-        <Footer />
+      {/* <ResizeBackground /> */}
+      <Container maxWidth="lg" style={{ height: "100svh" }}>
+        <HashRouter>
+          <Browser />
+          {/* <Matches /> */}
+          <Main />
+        </HashRouter>
+      </Container>
+      {/* <Steam /> */}
+      <Footer />
     </>
   );
 }
