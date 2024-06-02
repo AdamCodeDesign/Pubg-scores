@@ -6,12 +6,14 @@ html{
 body {
   margin: 0;
   padding: 0;  
-  background-color: black;
+  background-color: rgb(156, 18, 18);
   background-image: url(src/assets/bgd1.jpeg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   background-attachment:fixed;
+  overflow-y: hidden;
+
 }
 
 .container{
