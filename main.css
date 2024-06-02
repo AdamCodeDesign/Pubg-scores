@@ -1,5 +1,8 @@
 
+html{
+  overflow-y: hidden;
 
+}
 body {
   margin: 0;
   padding: 0;  
@@ -9,9 +12,12 @@ body {
   background-position: center center;
   background-size: cover;
   background-attachment:fixed;
-  height: 100svh;
 }
 
+.container{
+  height: 100svh;
+  overflow-y: auto;
+}
 .footer {
   text-align: center;
   color: white;

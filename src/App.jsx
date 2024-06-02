@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       {/* <ResizeBackground /> */}
-      <Container maxWidth="lg" style={{ height: "100svh" }}>
+      <Container maxWidth="lg" className="container">
         <HashRouter>
           <Browser />
           {/* <Matches /> */}
