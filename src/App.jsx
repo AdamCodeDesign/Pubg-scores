@@ -5,13 +5,12 @@ import Main from "./components/Main";
 import Matches from "./components/Matches";
 import Footer from "./components/Footer";
 import Steam from "./components/Steam";
-import ResizeBackground from "./components/ResizeBackground";
+import '..//main.css'
 
 function App() {
   return (
-    <>
-      {/* <ResizeBackground /> */}
-      <Container maxWidth="lg" className="container">
+    <div className="container">
+      <Container maxWidth="lg">
         <HashRouter>
           <Browser />
           {/* <Matches /> */}
@@ -20,7 +19,7 @@ function App() {
       </Container>
       {/* <Steam /> */}
       <Footer />
-    </>
+    </div>
   );
 }
 
