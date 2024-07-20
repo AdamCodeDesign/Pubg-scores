@@ -17,7 +17,7 @@ import vehicle from '../assets/Vehicle_Explosion.png';
 import time from '../assets/time.png';
 
 export default function NoRankedStats({ stats }) {
-  const KD = stats.kills / stats.losses;
+  const KD = stats.kills / stats.roundsPlayed;
   const timeSurvived = stats.timeSurvived;
   const hours = Math.floor(timeSurvived / 3600);
   const minutes = Math.round((timeSurvived % 3600) / 60);
