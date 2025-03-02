@@ -6,9 +6,9 @@ export default function Error() {
   console.log("status",status);
 
   return (
-    <Typography variant="h2" color="red">
+    <Typography variant="h4" color="red">
       {status === "429" && "Serwer down"}
-      {status === "404" && "Player nie istnieje"}
+      {status === "404" && "Player NOT FOUND"}
     </Typography>
   );
 }

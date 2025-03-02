@@ -45,7 +45,7 @@ export default function LifetimeStats() {
           return response.json();
         }
         return {
-          error: "Cosik poszło nie tak",
+          error: "Could not fetch data",
         };
       })
       .then((data) => {
@@ -75,7 +75,7 @@ export default function LifetimeStats() {
           return response.json();
         }
         return {
-          error: "Cosik poszło nie tak",
+          error: "Could not fetch data",
         };
       })
       .then((data) => {
