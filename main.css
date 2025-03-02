@@ -19,6 +19,7 @@ body {
 .container{
   height: 100svh;
   overflow-y: auto;
+  text-align: center;
 }
 .footer {
   text-align: center;
